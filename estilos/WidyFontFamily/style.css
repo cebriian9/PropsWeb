@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Widy';
+    src: local('Widy Medium'), local('Widy-Medium'),
+        url('Widy-Medium.woff2') format('woff2'),
+        url('Widy-Medium.woff') format('woff'),
+        url('Widy-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }
