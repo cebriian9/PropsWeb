@@ -1,8 +1,40 @@
 //inportar font para el titulo
-.titulo{
+.titulo {
     font-family: 'widy';
 }
+
+//paleta de colores
+$theme-colors: (
+    "primary":    #826541,
+    "secondary":  #ff8e0d,
+    "info":       #b3d5ff,
+    "light":      #fff3e5,
+    "dark":       #00234d
+  );
+
 @import url('WidyFontFamily/style.css');
+
+.bg-encabezado {
+    background-image: url(../multimedia/imagenes/decoros/fondoEncabezado.svg);
+    
+    
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bg-cabecera {
+    background-image: url(../multimedia/imagenes/decoros/cabecera.jpg);
+    height: 50vh;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@media (max-width: 700px) {
+    .bg-cabecera {
+        height: 40vh;
+    }
+}
 
 
 
