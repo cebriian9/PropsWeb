@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -17,9 +17,14 @@
     <!--BS5-->
     <link rel="stylesheet" href="../estilos/styles.css">
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!--mi JS-->
+    <script src="../scripts/cambios.js"></script>
+
+
 </head>
 
-<body>
+<body onresize="footerFix()">
 
     <header class=" text-white ">
         <!--encabezado-->
@@ -38,14 +43,38 @@
     </header>
 
     <!--body-->
-    <div class="container p-5 d-flex justify-content-center">
-        <div class="container bg-light  rounded-5 my-4  ">
-            a
+    <div class=" d-flex justify-content-center align-items-center my-5">
+        <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
+
+            <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
+            <div class="input-group mt-4">
+                <div class="input-group-text ">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <!--usuario-->
+                <input class="form-control bg-light" name="usuario" type="text" placeholder="Usuario" />
+            </div>
+            <div class="input-group mt-1">
+                <div class="input-group-text ">
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <!--contraseña-->
+                <input class="form-control bg-light" name="pass" type="password" placeholder="Contraseña" />
+            </div>
+
+            <button type="submit" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                Acceder
+            </button>
+            <div class="d-flex gap-1 justify-content-center mt-1">
+                <div>¿Aún no tienes cuenta?</div>
+                <a href="#" class="text-decoration-none text-info fw-semibold">Registrarse</a>
+            </div>
+
         </div>
     </div>
     <!--//body-->
 
-    <footer class="container-fluid bg-black mb-0">
+    <footer class="container-fluid bg-black mb-0 fixed-bottom" id="footerFix" onresize="fix()">
         <div class="container text-light">
             <div class="row p-4">
                 <!--cambio de idioma-->
@@ -57,11 +86,13 @@
                             <option value="español">Español</option>
                             <option value="ingles">Ingles</option>
                         </select>
-                        
+
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html" class="nav-link ">Comenzar</a></button>
+                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
+                                    href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
+                                    class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
                     </div>
