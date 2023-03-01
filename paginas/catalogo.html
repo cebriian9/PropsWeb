@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,74 +27,60 @@
     -->
 
 </head>
+
 <body>
     <!--encabezado-->
-    <header class="container-fluid py-4 bg-primary p-0 text-white bg-encabezado ">
+    <header class="container-fluid py-4 bg-primary p-0 text-white bg-encabezado">
+        <div class="row ">
+            <!--Titulo-->
+            <div class="col d-flex flex-column justify-content-center mt-2">
+                <p class="h1 titulo text-center text-lg-start"><a href="index.html" class="nav-link">Props Web</a>
+                </p>
+            </div>
+            <!--//Titulo-->
 
-        <div class="container-fluid d-flex justify-content-center p-3 fixed-top bg-encabezado bg-primary">
+            <div class=" col-12 col-sm d-flex justify-content-center order-3 order-sm-0  ">
+                <!--Menu desplegable-->
+                <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center">
 
-            <div class="row w-100">
-                <!--Titulo-->
-                <div class="col d-flex flex-column justify-content-center mt-2">
-                    <p class="h1 titulo text-center text-lg-start"><a href="index.html" class="nav-link">Props Web</a>
-                    </p>
-                </div>
-                <!--//Titulo-->
-
-                <div class=" col-12 col-sm d-flex justify-content-center order-3 order-sm-0  ">
-                    <!--Menu desplegable-->
-                    <nav class="navbar navbar-expand-lg navbar-light d-flex justify-content-center">
-
-                        <button onclick="perro()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                            aria-label="Toggle navigation">
-                            <span class="h3 text-light" id="tongleNav"><i class="fa-solid fa-bars"></i></span>
-                        </button>
-                        <div>
-                            <!--Desplegable-->
-                            <div class="collapse navbar-collapse " id="navbarNav">
-                                <ul class="navbar-nav d-flex  align-items-center ">
-                                    <li class="nav-item">
-                                        <a class="nav-link text-light fs-5 fw-medium" href="#">Carrito</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-light fs-5 fw-medium" href="#">Catalogo</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
-                                    </li>
-
-                                </ul>
-
-                            </div>
-                            <!--buscador-->
-                            <form action="" method="post" class="d-flex justify-content-between " autocomplete="on">
-
-                                <input class="form-control " type="search" list="buscador" placeholder="Buscar"
-                                    aria-label="Buscar">
-                                <button class="btn btn-dark rounded-4 mx-2" type="submit"><i
-                                        class="fa-solid fa-magnifying-glass "></i></button>
-
-                            </form>
-                            <!--//buscador-->
+                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="h3 text-light" id="tongleNav"><i class="fa-solid fa-bars"></i></span>
+                    </button>
+                    <div>
+                        <!--Desplegable-->
+                        <div class="collapse navbar-collapse " id="navbarNav">
+                            <ul class="navbar-nav d-flex  align-items-center ">
+                                <li class="nav-item">
+                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Carrito</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Catalogo</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
+                                </li>
+                            </ul>
                         </div>
-                    </nav>
-                    <!--//Menu desplegable-->
 
-                </div>
-                <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row">
-                    <!--Inicio de sesion-->
-                    <button class="btn  text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.html"
-                            class="nav-link ">Inicio Sesion</a></button>
-                    <button class="btn btn-dark fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
-                            class="nav-link ">Comenzar</a></button>
-                    <!--//Inicio de sesion-->
-                </div>
+                    </div>
+                </nav>
+                <!--//Menu desplegable-->
+
+            </div>
+            <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
+                <!--Inicio de sesion-->
+                <button class="btn  text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.html"
+                        class="nav-link ">Inicio Sesion</a></button>
+                <button class="btn btn-dark fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
+                        class="nav-link ">Comenzar</a></button>
+                <!--//Inicio de sesion-->
             </div>
         </div>
+
         <!--//encabezado-->
 
-        
     </header>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 250">
         <path fill="#826541" fill-opacity="1"
@@ -103,8 +90,162 @@
     <!--//encabezado-->
 
     <!--body-->
+    <div class="container-fluid ">
+        <div class="row mx-0 mx-sm-5 gap-4">
+            <!--filtros-->
+            <div class="col-12 col-xl-2 ">
+                <div class="row gap-3">
+                    <!--buscador-->
+                    <p>Nombre:</p>
+                    <form action="" method="post" class="d-flex justify-content-between" autocomplete="on">
 
+                        <input class="form-control " type="search" list="buscador" placeholder="Buscar"
+                            aria-label="Buscar">
+                        <button class="btn btn-dark rounded-4 mx-2" type="submit"><i
+                                class="fa-solid fa-magnifying-glass "></i></button>
+                    </form>
+                    <!--//buscador-->
+                    <div class="accordion accordion-flush shadow" >
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" >
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne">
+                                    <!--Nombre filtro-->
+                                    Categorias
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                >
+                                <div class="accordion-body">
+                                    <!--PHP poner las cate como en el examen-->
+                                    <p>pepe</p>
+                                    <p>pepe2</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+
+            <!-- 
+                Tarjeta modelo apra luego php
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card mb-5">
+                        <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">Some quick example text to build on the card title and make up
+                                the bulk of the card's content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            -->
+            <!--Contenido-->
+            <div class="col">
+                <div>
+                    <div class="row">
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-md-6 col-lg-4">
+                            <div class="card mb-5">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
+                                    class="card-img-top" alt="...">
+                                <div class="card-body">
+                                    <h5 class="card-title">Card title</h5>
+                                    <p class="card-text">Some quick example text to build on the card title and make up
+                                        the bulk of the card's content.</p>
+                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!--//body-->
 
@@ -120,11 +261,13 @@
                             <option value="español">Español</option>
                             <option value="ingles">Ingles</option>
                         </select>
-                        
+
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html" class="nav-link ">Comenzar</a></button>
+                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
+                                    href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
+                                    class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
                     </div>
@@ -160,4 +303,5 @@
     </footer>
 
 </body>
+
 </html>

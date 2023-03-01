@@ -1,7 +1,7 @@
 //--Cambio de hamborgesa a X menu desplegable-----
 
 let tongleNav = false
-function perro() {
+function xAnimation() {
     if (tongleNav) {
         document.getElementById('tongleNav').innerHTML = '<i class="fa-solid fa-bars"></i>'
     } else {
@@ -15,7 +15,7 @@ function perro() {
 //--correccion footer inicio de sesion-----
 
 
-function footerFix() {
+function footerFixs() {
     
     if (screen.width<995) {
         document.getElementById("footerFix").classList.remove("fixed-bottom");
