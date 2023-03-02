@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", function () {
     //nodos-registro------------------------/
 
 
-
     //-validar usuario----------
     inpUsuario.addEventListener('blur', function () {
         validarUsuario()
@@ -35,7 +34,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         return valido
     }
-
 
     //-validar contraseñas---------
     inpPass.addEventListener('blur', function () {
@@ -98,8 +96,6 @@ document.addEventListener("DOMContentLoaded", function () {
         return valido
     }
 
-
-
     //-validar apellido---------
     inpApellidos.addEventListener('blur', function () {
         validarApellidos()
@@ -121,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
-
+    //-habilito o no el boton de envio
     function validacionFinal() {
         if (validarUsuario() && validarContraseña() && validarContraseña2() && validarNombre() && validarApellidos()) {
             submit.classList.replace("disabled", "ds")
