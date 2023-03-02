@@ -35,7 +35,6 @@
 			</column>
 			<column name="usuario" type="VARCHAR" length="20" jt="12" mandatory="y" />
 			<column name="contraseña" type="VARCHAR" length="64" jt="12" mandatory="y" />
-			<column name="correo" type="VARCHAR" length="50" jt="12" mandatory="y" />
 			<column name="fecha_user" type="DATE" jt="91" />
 			<column name="nombre" type="VARCHAR" length="20" jt="12" mandatory="y" />
 			<column name="apellidos" type="VARCHAR" length="20" jt="12" />
@@ -88,10 +87,10 @@ FROM
 				<cell type="chart" name="Pie" template="Pie" pos="0,1,4,1,l,c" max_records="20" >
 					<form_script type="DataSource" language="SQL" >
 						<var name="id_user" type="4" />
-						<var name="usuario" type="-1" />
-						<var name="contraseña" type="-1" />
-						<var name="nombre" type="-1" />
-						<var name="apellidos" type="-1" />
+						<var name="usuario" />
+						<var name="contraseña" />
+						<var name="nombre" />
+						<var name="apellidos" />
 						<script ><![CDATA[SELECT * FROM propsweb.usuarios]]></script>
 					</form_script>
 					<param name="i0" value="nombre" />
@@ -103,10 +102,10 @@ FROM
 				<tableview name="sample" template="Table" css="table table-striped table-sm table-hover" pos="0,2,4,2,f,f" layout="{{-2,-2,-2,-2,-2,-2},{-2,-2}}" scroll="n" html="n" header_rows="1" >
 					<form_script type="DataSource" language="SQL" >
 						<var name="id_user" type="4" />
-						<var name="usuario" type="-1" />
-						<var name="contraseña" type="-1" />
-						<var name="nombre" type="-1" />
-						<var name="apellidos" type="-1" />
+						<var name="usuario" />
+						<var name="contraseña" />
+						<var name="nombre" />
+						<var name="apellidos" />
 						<script ><![CDATA[SELECT * FROM propsweb.usuarios]]></script>
 					</form_script>
 					<cell type="label" name="id_user" pos="0,0,0,0,c,c" />

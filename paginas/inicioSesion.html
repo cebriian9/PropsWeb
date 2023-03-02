@@ -43,22 +43,94 @@
     </header>
 
     <!--body-->
-    <div class=" d-flex justify-content-center align-items-center my-5">
-        <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
+    <div class=" d-flex flex-column justify-content-center align-items-center my-5">
+        <!-- Tab links -->
+        <div class="tab">
 
+            <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'inicio')"
+                id="defaultOpen">Iniciar sesion</button>
+
+            <button class="tabLinks btn btn-outline-dark fs-5"
+                onclick="openTabsRegistro(event, 'registro')">Registrarse</button>
+        </div>
+        <!-- //Tab links -->
+
+
+        <div id="inicio" class="tabContent">
+            <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
+
+                <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
+                <div class="input-group mt-4">
+                    <div class="input-group-text ">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <!--usuario-->
+                    <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
+                </div>
+                <div class="input-group mt-1">
+                    <div class="input-group-text ">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <!--contraseña-->
+                    <input class="form-control " name="pass" type="password" placeholder="Contraseña" />
+                </div>
+
+                <span class="text-danger-emphasis">Revise las credenciales</span>
+
+                <button type="submit" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                    Acceder
+                </button>
+                <div class="d-flex gap-1 justify-content-center mt-1">
+                    <div>¿Aún no tienes cuenta?</div>
+                    <a href="#" class="text-decoration-none text-info fw-semibold">Registrarse</a>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="registro" class="tabContent">
+
+            <div class="bg-light p-5 rounded-5 shadow " style="width: 25rem">
+                <div class="row gap-3">
+                    <div class="text-center fs-1 fw-bold">Registrarse</div>
+
+
+                    <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
+                    <input class="form-control " name="pass" type="text" placeholder="Contraseña" />
+                    <input class="form-control " name="pass2" type="text" placeholder="Repetir contraseña" />
+                    <input class="form-control " name="nombre" type="text" placeholder="Nombre" />
+                    <input class="form-control " name="apellidos" type="text" placeholder="apellidos" />
+                    <input class="form-control " name="fecha_nac" type="date" placeholder="Usuario" />
+                </div>
+
+
+                <button type="submit" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                    Registrarse
+                </button>
+            </div>
+        </div>
+
+
+    </div>
+    <!--//body-->
+
+
+    <!--
+        <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
+            
             <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
             <div class="input-group mt-4">
                 <div class="input-group-text ">
                     <i class="fa-solid fa-user"></i>
                 </div>
-                <!--usuario-->
+                <--usuario--
                 <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
             </div>
             <div class="input-group mt-1">
                 <div class="input-group-text ">
                     <i class="fa-solid fa-lock"></i>
                 </div>
-                <!--contraseña-->
+                <--contraseña--
                 <input class="form-control " name="pass" type="password" placeholder="Contraseña" />
             </div>
 
@@ -73,8 +145,7 @@
             </div>
 
         </div>
-    </div>
-    <!--//body-->
+    -->
 
     <footer class="container-fluid bg-black" id="footerFix" onresize="fix()">
         <div class="container text-light">
@@ -129,5 +200,9 @@
 
     </footer>
 </body>
+<script>
+    //Coje el elemento con el valor default para abrirlo
+    document.getElementById("defaultOpen").click();
+</script>
 
 </html>
