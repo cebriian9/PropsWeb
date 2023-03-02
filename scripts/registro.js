@@ -1,3 +1,5 @@
+
+
 document.addEventListener("DOMContentLoaded", function () {
     //nodos-registro-----------------------\
 
@@ -6,16 +8,19 @@ document.addEventListener("DOMContentLoaded", function () {
     let inpPass2 = document.getElementById('pass2')
     let inpNombre = document.getElementById('nombre')
     let inpApellidos = document.getElementById('apellidos')
-
-
-
-
+    let submit = document.getElementById('submit')
 
     //nodos-registro------------------------/
 
 
+
     //-validar usuario----------
-    inpUsuario.addEventListener('change', function () {
+    inpUsuario.addEventListener('blur', function () {
+        validarUsuario()
+        validacionFinal()
+    })
+
+    function validarUsuario() {
         let usuario = document.getElementById('usuario').value
         let exp = /^[a-z0-9_-]{3,16}$/
 
@@ -29,21 +34,21 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         return valido
-    })
-
-    function validarUsuario() {
-        
     }
 
-    //-validar contraseñas---------
 
-    inpPass.addEventListener('change', function () {
+    //-validar contraseñas---------
+    inpPass.addEventListener('blur', function () {
+        validarContraseña()
+        validacionFinal()
+    })
+
+    function validarContraseña() {
         let pass = document.getElementById('pass').value
         let exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
 
 
         let valido = exp.test(pass)
-        console.log(valido);
         if (valido == false) {
             document.getElementById('errPass').innerHTML = "Contraseña poco fuerte "
         } else {
@@ -51,10 +56,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         return valido
-    })
+    }
 
     //-validar contraseñas---------
-    inpPass2.addEventListener('change', function () {
+    inpPass2.addEventListener('blur', function () {
+        validarContraseña2()
+        validacionFinal()
+    })
+
+    function validarContraseña2() {
         let pass = document.getElementById('pass').value
         let pass2 = document.getElementById('pass2').value
         let valido = false
@@ -68,10 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('errPass2').innerHTML = " "
         }
         return valido
-    })
+    }
 
     //-validar nombre---------
-    inpNombre.addEventListener('change', function () {
+    inpNombre.addEventListener('blur', function () {
+        validarNombre()
+        validacionFinal()
+    })
+    function validarNombre() {
         let nombre = document.getElementById('nombre').value
         let exp = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]{3,20}$/
 
@@ -82,13 +96,17 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('errNombre').innerHTML = " "
         }
         return valido
-    })
+    }
 
 
 
     //-validar apellido---------
+    inpApellidos.addEventListener('blur', function () {
+        validarApellidos()
+        validacionFinal()
+    })
 
-    inpApellidos.addEventListener('change', function () {
+    function validarApellidos() {
         let apellido = document.getElementById('apellidos').value
         let exp = /^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]{3,20}$/
 
@@ -99,6 +117,16 @@ document.addEventListener("DOMContentLoaded", function () {
             document.getElementById('errApellido').innerHTML = " "
         }
         return valido
-    })
+    }
 
+
+
+
+    function validacionFinal() {
+        if (validarUsuario() && validarContraseña() && validarContraseña2() && validarNombre() && validarApellidos()) {
+            submit.classList.replace("disabled", "ds")
+        } else {
+            submit.classList.add("disabled")
+        }
+    }
 })
