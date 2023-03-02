@@ -36,10 +36,8 @@
 			<column name="usuario" type="VARCHAR" length="20" jt="12" mandatory="y" />
 			<column name="contraseña" type="VARCHAR" length="64" jt="12" mandatory="y" />
 			<column name="correo" type="VARCHAR" length="50" jt="12" mandatory="y" />
-			<column name="fecha_user" type="DATE" jt="91" />
 			<column name="nombre" type="VARCHAR" length="20" jt="12" mandatory="y" />
 			<column name="apellidos" type="VARCHAR" length="20" jt="12" />
-			<column name="fecha_nac" type="DATE" jt="91" />
 			<index name="pk_usuarios" unique="PRIMARY_KEY" >
 				<column name="id_user" />
 			</index>

@@ -14,15 +14,7 @@ function xAnimation() {
 
 //--correccion footer inicio de sesion-----
 
-function footerFixs() {
-    
-    if (screen.width<995) {
-        document.getElementById("footerFix").classList.remove("fixed-bottom");
-         
-    }else{
-        document.getElementById("footerFix").classList.add("fixed-bottom");
-    }
-}
+
 
 
 
