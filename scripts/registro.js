@@ -1,12 +1,7 @@
 
-
-function prueba() {
-    console.log("hola");
-}
-
 document.addEventListener("DOMContentLoaded", function () {
     //nodos-registro-----------------------\
-    console.log("hola");
+    
     let inpUsuario = document.getElementById('usuario')
     let inpPass = document.getElementById('pass')
     let inpPass2 = document.getElementById('pass2')
@@ -124,9 +119,9 @@ document.addEventListener("DOMContentLoaded", function () {
     //-habilito o no el boton de envio
     function validacionFinal() {
         if (validarUsuario() && validarContraseña() && validarContraseña2() && validarNombre() && validarApellidos()) {
-            submit.classList.replace("disabled", " ")
+            submit.classList.replace("disabled", "ds");
         } else {
-            submit.classList.add("disabled")
+            submit.classList.replace("ds", "disabled")
         }
     }
 })

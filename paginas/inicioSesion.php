@@ -27,7 +27,7 @@
 
 </head>
 
-<body onload="prueba()">
+<body>
 
     <header class=" text-white ">
         <!--encabezado-->
