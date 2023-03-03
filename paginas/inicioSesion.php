@@ -44,7 +44,13 @@
         </div>
         <!--//encabezado-->
     </header>
+    <?php
+    if (isset($_COOKIE['PHPSESSID'])) {
+        header("Location:index.php");
+    }
 
+    
+    ?>
     <!--body-->
     <div class=" d-flex flex-column justify-content-center align-items-center my-5">
         <!-- Tab links -->

@@ -32,7 +32,19 @@ if (isset($_REQUEST['enviar'])) {
             $conexion->query($sql);
 
             echo " Registrado correctamente";
+
+            if (!isset($_SESSION)) {
+                // inicio la sesión
+                session_start();
+            }
+
+            //le ponemos que esta identificado
+            $_SESSION["autenticado"] = true;
+            $_SESSION["usuario"]=$usuario;
+
             header("Location:index.php");
+
+            
         } else {
             echo "El usuario ya existe";
         }
@@ -46,7 +58,7 @@ if (isset($_REQUEST['enviar'])) {
         $row = $resultado->fetch_object();
 
         //si no existe el usuario lo mando a registro, sino de vuelta a empezar 
-        if ($row->usuario == $usuario) {
+        if ($row != null) {
             echo "Iniciado correcto";
 
             if (!isset($_SESSION)) {
@@ -57,6 +69,7 @@ if (isset($_REQUEST['enviar'])) {
 
             //le ponemos que esta identificado
             $_SESSION["autenticado"] = true;
+            $_SESSION["usuario"]=$usuario;
 
             header("Location:index.php");
 

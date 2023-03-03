@@ -28,7 +28,13 @@
 </head>
 
 <body>
-
+    <?php
+    if (!isset($_SESSION)) {
+        // inicio la sesión
+        session_start();
+    }
+    include "../php/pijadas.inc.php"
+    ?>
 
     <!--encabezado-->
     <header class="container-fluid  bg-primary  text-white bg-encabezado">
@@ -71,22 +77,27 @@
             </div>
             <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
                 <?php
-                session_start();
-                
-                if (!$_SESSION['autenticado']) {
-                    
-                
+                if (!isset($_SESSION)) {
+                    // inicio la sesión
+                    session_start();
+                }
+
+
+                if (empty($_SESSION)) {
+
                 ?>
-                <!--Inicio de sesion-->
-                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
-                <!--//Inicio de sesion-->
+
+                    <!--Inicio de sesion-->
+                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                    <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                    <!--//Inicio de sesion-->
+
                 <?php
-                }else{
-                    ?>
+                } else {
+                ?>
                     <i class="fa-solid fa-user ico"></i>
-                    <p>Hola, </p>
-                    <?php
+                    <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                <?php
                 }
                 ?>
             </div>
@@ -237,10 +248,28 @@
                         </select>
 
                         <div class="d-flex flex-column justify-content-center ">
-                            <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
-                            <!--//Inicio de sesion-->
+                            <?php
+                            if (!isset($_SESSION)) {
+                                // inicio la sesión
+                                session_start();
+                            }
+
+                            if (empty($_SESSION)) {
+
+                            ?>
+                                <!--Inicio de sesion-->
+                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                                <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                                <!--//Inicio de sesion-->
+                            <?php
+                            } else {
+                            ?>
+                                <i class="fa-solid fa-user ico"></i>
+                                <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -264,18 +293,24 @@
                         <!--solo para administrador-->
 
 
-                        <hr>
-                        <p class="mb-0">Administrador:</p>
-                        <hr class="w-25 my-0">
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de productos</a>
-                        </li>
+                        <?php
+                        if (!empty($_SESSION))
+                        if (esAdmin($conexion)) {
+                        ?>
+                            <hr>
+                            <p class="mb-0">Administrador:</p>
+                            <hr class="w-25 my-0">
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de productos</a>
+                            </li>
 
-                        <hr>
-
+                            <hr>
+                        <?php
+                        }
+                        ?>
                     </ul>
                 </div>
 
