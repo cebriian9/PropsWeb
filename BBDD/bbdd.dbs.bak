@@ -62,7 +62,7 @@
 			<entity schema="propsweb" name="usuarios" />
 		</group>
 	</layout>
-	<layout name="~Layout with Sample Tools" id="Layout-1ec3" confirmed="y" show_column_type="y" show_relation="columns" >
+	<layout name="~Layout with Sample Tools" id="Layout-1ec3" show_column_type="y" show_relation="columns" >
 		<entity schema="propsweb" name="admins" color="BED3F4" x="48" y="48" />
 		<entity schema="propsweb" name="productos" color="3986C1" x="592" y="48" />
 		<entity schema="propsweb" name="usuarios" color="BED3F4" x="256" y="48" />

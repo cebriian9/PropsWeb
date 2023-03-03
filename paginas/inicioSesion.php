@@ -45,9 +45,7 @@
         <!--//encabezado-->
     </header>
     <?php
-    if (isset($_COOKIE['PHPSESSID'])) {
-        header("Location:index.php");
-    }
+    
 
     
     ?>

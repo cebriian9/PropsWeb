@@ -28,6 +28,7 @@
 </head>
 
 <body>
+    
     <?php
     if (!isset($_SESSION)) {
         // inicio la sesión

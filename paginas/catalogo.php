@@ -29,8 +29,16 @@
 </head>
 
 <body>
+    <?php
+    if (!isset($_SESSION)) {
+        // inicio la sesión
+        session_start();
+    }
+    include "../php/pijadas.inc.php"
+    ?>
+
     <!--encabezado-->
-    <header class="container-fluid  bg-primary text-white bg-encabezado">
+    <header class="container-fluid  bg-primary  text-white bg-encabezado">
         <div class="row py-4">
             <!--Titulo-->
             <div class="col d-flex flex-column justify-content-center mt-2">
@@ -44,9 +52,7 @@
                 <!--Menu desplegable-->
                 <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column justify-content-center">
 
-                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="h3 text-light" id="tongleNav"><i class="fa-solid fa-bars"></i></span>
                     </button>
                     <div>
@@ -71,20 +77,37 @@
 
             </div>
             <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
-                <!--Inicio de sesion-->
-                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php"
-                        class="nav-link ">Inicio Sesion</a></button>
-                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php"
-                        class="nav-link ">Comenzar</a></button>
-                <!--//Inicio de sesion-->
+                <?php
+                if (!isset($_SESSION)) {
+                    // inicio la sesión
+                    session_start();
+                }
+
+
+                if (empty($_SESSION)) {
+
+                ?>
+
+                    <!--Inicio de sesion-->
+                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                    <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                    <!--//Inicio de sesion-->
+
+                <?php
+                } else {
+                ?>
+                    <i class="fa-solid fa-user ico"></i>
+                    <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                <?php
+                }
+                ?>
             </div>
         </div>
 
         <!--//encabezado-->
     </header>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
-        <path fill="#826541" fill-opacity="1"
-            d="M0,64L120,85.3C240,107,480,149,720,165.3C960,181,1200,171,1320,165.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
+        <path fill="#826541" fill-opacity="1" d="M0,64L120,85.3C240,107,480,149,720,165.3C960,181,1200,171,1320,165.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
         </path>
     </svg>
     <!--//encabezado-->
@@ -102,24 +125,20 @@
                     <span>Nombre:</span>
                     <form action="" method="post" class="d-flex justify-content-between" autocomplete="on">
 
-                        <input class="form-control " type="search" list="buscador" placeholder="Buscar"
-                            aria-label="Buscar">
-                        <button class="btn btn-dark rounded-4 mx-2" type="submit"><i
-                                class="fa-solid fa-magnifying-glass "></i></button>
+                        <input class="form-control " type="search" list="buscador" placeholder="Buscar" aria-label="Buscar">
+                        <button class="btn btn-dark rounded-4 mx-2" type="submit"><i class="fa-solid fa-magnifying-glass "></i></button>
                     </form>
                     <!--//buscador-->
-                    <div class="accordion accordion-flush shadow" >
+                    <div class="accordion accordion-flush shadow">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" >
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseCategoria"><!--cambio de id para desplegable-->
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCategoria"><!--cambio de id para desplegable-->
                                     <!--Nombre filtro-->
                                     Categorias
                                 </button>
                             </h2>
                             <!--cambio de id para desplegable-->
-                            <div id="flush-collapseCategoria" class="accordion-collapse collapse"
-                                >
+                            <div id="flush-collapseCategoria" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <!--PHP poner las cate como en el examen-->
                                     <p>pepe</p>
@@ -129,18 +148,16 @@
                         </div>
                     </div>
 
-                    <div class="accordion accordion-flush shadow" >
+                    <div class="accordion accordion-flush shadow">
                         <div class="accordion-item">
-                            <h2 class="accordion-header" >
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseEstilo"><!--cambio de id para desplegable-->
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEstilo"><!--cambio de id para desplegable-->
                                     <!--Nombre filtro-->
                                     Estilo
                                 </button>
                             </h2>
                             <!--cambio de id para desplegable-->
-                            <div id="flush-collapseEstilo" class="accordion-collapse collapse"
-                                >
+                            <div id="flush-collapseEstilo" class="accordion-collapse collapse">
                                 <div class="accordion-body">
                                     <!--PHP poner las cate como en el examen-->
                                     <p>pepe</p>
@@ -151,7 +168,7 @@
                     </div>
 
                     <div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -177,8 +194,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -190,8 +206,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -203,8 +218,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -216,8 +230,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -229,8 +242,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -242,8 +254,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -255,8 +266,7 @@
 
                         <div class="col-12 col-md-6 col-lg-4">
                             <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                    class="card-img-top" alt="...">
+                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
                                 <div class="card-body">
                                     <h5 class="card-title">Card title</h5>
                                     <p class="card-text">Some quick example text to build on the card title and make up
@@ -288,12 +298,28 @@
                         </select>
 
                         <div class="d-flex flex-column justify-content-center ">
-                            <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
-                                    href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php"
-                                    class="nav-link ">Comenzar</a></button>
-                            <!--//Inicio de sesion-->
+                            <?php
+                            if (!isset($_SESSION)) {
+                                // inicio la sesión
+                                session_start();
+                            }
+
+                            if (empty($_SESSION)) {
+
+                            ?>
+                                <!--Inicio de sesion-->
+                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                                <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                                <!--//Inicio de sesion-->
+                            <?php
+                            } else {
+                            ?>
+                                <i class="fa-solid fa-user ico"></i>
+                                <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -316,17 +342,25 @@
 
                         <!--solo para administrador-->
 
-                        <hr>
-                        <p class="mb-0">Administrador:</p>
-                        <hr class="w-25 my-0">
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de productos</a>
-                        </li>
-                        
-                        <hr>
+
+                        <?php
+                        if (!empty($_SESSION))
+                            if (esAdmin($conexion)) {
+                        ?>
+                            <hr>
+                            <p class="mb-0">Administrador:</p>
+                            <hr class="w-25 my-0">
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de productos</a>
+                            </li>
+
+                            <hr>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </div>
 
@@ -334,7 +368,7 @@
                 <div class="col">
 
                     <p>
-                        
+
                     </p>
                 </div>
             </div>
