@@ -3,11 +3,11 @@
 document.addEventListener("DOMContentLoaded", function () {
     //nodos-registro-----------------------\
 
-    let inpUsuario = document.getElementById('usuario')
-    let inpPass = document.getElementById('pass')
-    let inpPass2 = document.getElementById('pass2')
-    let inpNombre = document.getElementById('nombre')
-    let inpApellidos = document.getElementById('apellidos')
+    let inpUsuario = document.getElementById('usuario').value
+    let inpPass = document.getElementById('pass').value
+    let inpPass2 = document.getElementById('pass2').value
+    let inpNombre = document.getElementById('nombre').value
+    let inpApellidos = document.getElementById('apellidos').value
     let submit = document.getElementById('submit')
 
     //nodos-registro------------------------/

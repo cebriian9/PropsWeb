@@ -60,7 +60,7 @@
         <!--form inicio sesion-->
         <div id="inicio" class="tabContent">
             <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
-                <form action="../php/registro.inc.php" method="post">
+                <form action="#" method="post">
 
                     <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
                     <div class="input-group mt-4">
@@ -98,7 +98,7 @@
         <div id="registro" class="tabContent">
             <!--form registro-->
             <div class="bg-light p-5 rounded-5 shadow " style="width: 25rem">
-                <form action="../php/registro.inc.php" method="post">
+                <form action="#" method="post">
                     <div class="row gap-3">
                         <div class="text-center fs-1 fw-bold">Registrarse</div>
                         
@@ -154,8 +154,8 @@
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
                             <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
-                                    href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
+                                    href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php"
                                     class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
@@ -168,10 +168,10 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a class="text-light " href="catalogo.html">Diseños</a>
+                            <a class="text-light " href="catalogo.php">Diseños</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Cuenta</a>
+                            <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
                             <a class="text-light " href="#">Contacto</a>
@@ -184,10 +184,10 @@
                         <p class="mb-0">Administrador:</p>
                         <hr class="w-25 my-0">
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Vista de usuarios</a>
+                            <a class="text-light " href="usuario.php">Vista de usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Vista de productos</a>
+                            <a class="text-light " href="usuario.php">Vista de productos</a>
                         </li>
 
                         <hr>

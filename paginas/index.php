@@ -36,7 +36,7 @@
             <!--Titulo-->
             <div class="col d-flex flex-column justify-content-center mt-2">
                 <p class="h1 titulo text-center">
-                    <a href="index.html" class="nav-link">Props Web</a>
+                    <a href="index.php" class="nav-link">Props Web</a>
                 </p>
             </div>
             <!--//Titulo-->
@@ -55,10 +55,10 @@
                         <div class="collapse navbar-collapse " id="navbarNav">
                             <ul class="navbar-nav d-flex  align-items-center ">
                                 <li class="nav-item">
-                                    <a class="nav-link text-light fs-5 fw-medium" href="catalogo.html">Diseños</a>
+                                    <a class="nav-link text-light fs-5 fw-medium" href="catalogo.php">Diseños</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link text-light fs-5 fw-medium" href="usuario.html">Cuenta</a>
+                                    <a class="nav-link text-light fs-5 fw-medium" href="usuario.php">Cuenta</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
@@ -73,9 +73,9 @@
             </div>
             <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
                 <!--Inicio de sesion-->
-                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.html"
+                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php"
                         class="nav-link ">Inicio Sesion</a></button>
-                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.html"
+                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php"
                         class="nav-link ">Comenzar</a></button>
                 <!--//Inicio de sesion-->
             </div>
@@ -233,8 +233,8 @@
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
                             <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
-                                    href="inicioSesion.html" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.html"
+                                    href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php"
                                     class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
@@ -247,10 +247,10 @@
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a class="text-light " href="catalogo.html">Diseños</a>
+                            <a class="text-light " href="catalogo.php">Diseños</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Cuenta</a>
+                            <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
                         <li class="nav-item">
                             <a class="text-light " href="#">Contacto</a>
@@ -263,10 +263,10 @@
                         <p class="mb-0">Administrador:</p>
                         <hr class="w-25 my-0">
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Vista de usuarios</a>
+                            <a class="text-light " href="usuario.php">Vista de usuarios</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.html">Vista de productos</a>
+                            <a class="text-light " href="usuario.php">Vista de productos</a>
                         </li>
                         
                         <hr>
