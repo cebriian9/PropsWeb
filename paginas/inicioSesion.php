@@ -57,63 +57,79 @@
         </div>
         <!-- //Tab links -->
 
-
+        <!--form inicio sesion-->
         <div id="inicio" class="tabContent">
             <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
+                <form action="../php/registro.inc.php" method="post">
 
-                <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
-                <div class="input-group mt-4">
-                    <div class="input-group-text ">
-                        <i class="fa-solid fa-user"></i>
+                    <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
+                    <div class="input-group mt-4">
+                        <div class="input-group-text ">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <!--usuario-->
+                        <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
                     </div>
-                    <!--usuario-->
-                    <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
-                </div>
-                <div class="input-group mt-1">
-                    <div class="input-group-text ">
-                        <i class="fa-solid fa-lock"></i>
+                    <div class="input-group mt-1">
+                        <div class="input-group-text ">
+                            <i class="fa-solid fa-lock"></i>
+                        </div>
+                        <!--contraseña-->
+                        <input class="form-control " name="pass" type="password" placeholder="Contraseña" />
                     </div>
-                    <!--contraseña-->
-                    <input class="form-control " name="pass" type="password" placeholder="Contraseña" />
-                </div>
 
-                <span class="text-danger-emphasis">Revise las credenciales</span>
-
-                <button type="submit" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
-                    Acceder
-                </button>
-                <div class="d-flex gap-1 justify-content-center mt-1">
-                    <div>¿Aún no tienes cuenta?</div>
-                    <a href="#" class="text-decoration-none text-info fw-semibold"
-                        onclick="openTabsRegistro(event, 'registro')">Registrarse</a>
-                </div>
+                    <span class="text-danger-emphasis"><?php
+                    include "../php/registro.inc.php"
+                    ?></span>
+                    <!--submit-->
+                    <button type="submit" name="enviar" value="inicio"
+                        class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                        Acceder
+                    </button>
+                    <div class="d-flex gap-1 justify-content-center mt-1">
+                        <div>¿Aún no tienes cuenta?</div>
+                        <a href="#" class="text-decoration-none text-info fw-semibold"
+                            onclick="openTabsRegistro(event, 'registro')">Registrarse</a>
+                    </div>
+                </form>
             </div>
         </div>
 
         <div id="registro" class="tabContent">
-
+            <!--form registro-->
             <div class="bg-light p-5 rounded-5 shadow " style="width: 25rem">
-                <form action="a" method="post">
+                <form action="../php/registro.inc.php" method="post">
                     <div class="row gap-3">
                         <div class="text-center fs-1 fw-bold">Registrarse</div>
+                        
                         <input class="form-control " name="usuario" id="usuario" type="text" placeholder="Usuario" />
                         <span id="errUs" class="text-danger-emphasis"></span>
+
                         <input class="form-control " name="pass" id="pass" type="text" placeholder="Contraseña" />
                         <span>(minimo 8 Digitos una mayuscula y numero, sin caracteres especiales)</span>
                         <span id="errPass" class="text-danger-emphasis"></span>
+
                         <input class="form-control " name="pass2" id="pass2" type="text"
                             placeholder="Repetir contraseña" />
                         <span id="errPass2" class="text-danger-emphasis"></span>
+
                         <input class="form-control " name="nombre" id="nombre" type="text" placeholder="Nombre" />
                         <span id="errNombre" class="text-danger-emphasis"></span>
+
                         <input class="form-control " name="apellidos" id="apellidos" type="text"
                             placeholder="apellidos" />
                         <span id="errApellido" class="text-danger-emphasis"></span>
-                    </div>
 
-                    <button type="submit" id="submit" value="enviar" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled">
+                    </div>
+                    <!--submit-->
+                    <button type="submit" id="submit" name="enviar" value="registro"
+                        class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled">
                         Registrarse
                     </button>
+
+                    <span class="text-danger-emphasis"><?php
+                    include "../php/registro.inc.php"
+                    ?></span>
                 </form>
             </div>
         </div>
