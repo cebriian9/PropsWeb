@@ -259,6 +259,12 @@
 
                         <!--solo para administrador-->
 
+                        <?php
+                        session_name("loginUsuario");
+                        session_start();
+
+                        echo $_SESSION['autenticado'];
+                        ?>
                         <hr>
                         <p class="mb-0">Administrador:</p>
                         <hr class="w-25 my-0">
@@ -270,6 +276,8 @@
                         </li>
                         
                         <hr>
+                        <?php
+                        ?>
                     </ul>
                 </div>
 

@@ -19,14 +19,15 @@
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!--mi JS-->
+    <script src="../scripts/registro.js"></script>
     <script src="../scripts/cambios.js"></script>
 
-    <script src="../scripts/registro.js"></script>
+    
 
 
 </head>
 
-<body>
+<body onload="prueba()">
 
     <header class=" text-white ">
         <!--encabezado-->
@@ -35,7 +36,7 @@
             <div class="row w-100">
                 <!--Titulo-->
                 <div class="col d-flex flex-column justify-content-center mt-2">
-                    <p class="h1 titulo text-center "><a href="index.html" class="nav-link">Props Web</a>
+                    <p class="h1 titulo text-center "><a href="index.php" class="nav-link">Props Web</a>
                     </p>
                 </div>
                 <!--//Titulo-->
@@ -52,8 +53,7 @@
             <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'inicio')">Iniciar
                 sesion</button>
 
-            <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'registro')"
-                id="defaultOpen">Registrarse</button>
+            <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'registro')" id="defaultOpen">Registrarse</button>
         </div>
         <!-- //Tab links -->
 
@@ -68,28 +68,28 @@
                             <i class="fa-solid fa-user"></i>
                         </div>
                         <!--usuario-->
-                        <input class="form-control " name="usuario" type="text" placeholder="Usuario" />
+                        <input class="form-control " name="usuarioI" type="text" placeholder="Usuario" />
                     </div>
                     <div class="input-group mt-1">
                         <div class="input-group-text ">
                             <i class="fa-solid fa-lock"></i>
                         </div>
                         <!--contraseña-->
-                        <input class="form-control " name="pass" type="password" placeholder="Contraseña" />
+                        <input class="form-control " name="passI" type="password" placeholder="Contraseña" />
                     </div>
 
-                    <span class="text-danger-emphasis"><?php
-                    include "../php/registro.inc.php"
-                    ?></span>
+                    <span class="text-danger-emphasis">
+                        <?php
+                        include "../php/registro.inc.php"
+                        ?>
+                    </span>
                     <!--submit-->
-                    <button type="submit" name="enviar" value="inicio"
-                        class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                    <button type="submit" name="enviar" value="inicio" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
                         Acceder
                     </button>
                     <div class="d-flex gap-1 justify-content-center mt-1">
                         <div>¿Aún no tienes cuenta?</div>
-                        <a href="#" class="text-decoration-none text-info fw-semibold"
-                            onclick="openTabsRegistro(event, 'registro')">Registrarse</a>
+                        <a href="#" class="text-decoration-none text-info fw-semibold" onclick="openTabsRegistro(event, 'registro')">Registrarse</a>
                     </div>
                 </form>
             </div>
@@ -101,7 +101,7 @@
                 <form action="#" method="post">
                     <div class="row gap-3">
                         <div class="text-center fs-1 fw-bold">Registrarse</div>
-                        
+
                         <input class="form-control " name="usuario" id="usuario" type="text" placeholder="Usuario" />
                         <span id="errUs" class="text-danger-emphasis"></span>
 
@@ -109,27 +109,25 @@
                         <span>(minimo 8 Digitos una mayuscula y numero, sin caracteres especiales)</span>
                         <span id="errPass" class="text-danger-emphasis"></span>
 
-                        <input class="form-control " name="pass2" id="pass2" type="text"
-                            placeholder="Repetir contraseña" />
+                        <input class="form-control " name="pass2" id="pass2" type="text" placeholder="Repetir contraseña" />
                         <span id="errPass2" class="text-danger-emphasis"></span>
 
                         <input class="form-control " name="nombre" id="nombre" type="text" placeholder="Nombre" />
                         <span id="errNombre" class="text-danger-emphasis"></span>
 
-                        <input class="form-control " name="apellidos" id="apellidos" type="text"
-                            placeholder="apellidos" />
+                        <input class="form-control " name="apellidos" id="apellidos" type="text" placeholder="apellidos" />
                         <span id="errApellido" class="text-danger-emphasis"></span>
 
                     </div>
+                    <span class="text-danger-emphasis">
+                        <?php include "../php/registro.inc.php" ?>
+                    </span>
                     <!--submit-->
-                    <button type="submit" id="submit" name="enviar" value="registro"
-                        class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled">
+                    <button type="submit" id="submit" name="enviar" value="registro" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled"><!--disabled-->
                         Registrarse
                     </button>
 
-                    <span class="text-danger-emphasis"><?php
-                    include "../php/registro.inc.php"
-                    ?></span>
+
                 </form>
             </div>
         </div>
@@ -153,10 +151,8 @@
 
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
-                                    href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php"
-                                    class="nav-link ">Comenzar</a></button>
+                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
                     </div>

@@ -1,20 +1,24 @@
 
 
+function prueba() {
+    console.log("hola");
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     //nodos-registro-----------------------\
-
-    let inpUsuario = document.getElementById('usuario').value
-    let inpPass = document.getElementById('pass').value
-    let inpPass2 = document.getElementById('pass2').value
-    let inpNombre = document.getElementById('nombre').value
-    let inpApellidos = document.getElementById('apellidos').value
+    console.log("hola");
+    let inpUsuario = document.getElementById('usuario')
+    let inpPass = document.getElementById('pass')
+    let inpPass2 = document.getElementById('pass2')
+    let inpNombre = document.getElementById('nombre')
+    let inpApellidos = document.getElementById('apellidos')
     let submit = document.getElementById('submit')
 
     //nodos-registro------------------------/
 
 
     //-validar usuario----------
-    inpUsuario.addEventListener('blur', function () {
+    inpUsuario.addEventListener('change', function () {
         validarUsuario()
         validacionFinal()
     })
@@ -120,7 +124,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //-habilito o no el boton de envio
     function validacionFinal() {
         if (validarUsuario() && validarContraseña() && validarContraseña2() && validarNombre() && validarApellidos()) {
-            submit.classList.replace("disabled", "ds")
+            submit.classList.replace("disabled", " ")
         } else {
             submit.classList.add("disabled")
         }
