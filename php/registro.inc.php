@@ -49,15 +49,17 @@ if (isset($_REQUEST['enviar'])) {
         if ($row->usuario == $usuario) {
             echo "Iniciado correcto";
 
-            //asigno un nombre a la sesión para poder guardar diferentes datos
-            session_name("loginUsuario");
-            // inicio la sesión
-            session_start();
+            if (!isset($_SESSION)) {
+                // inicio la sesión
+                session_start();
+            }
+
 
             //le ponemos que esta identificado
             $_SESSION["autenticado"] = true;
 
             header("Location:index.php");
+
         } else {
             echo "Las credenciales no son correctas, prueba a registrarte\n";
         }

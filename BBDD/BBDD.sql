@@ -1,5 +1,0 @@
-DROP DATABASE IF EXISTS PropsWeb;
-CREATE DATABASE PropsWeb;
-USE PropsWeb;
-
-

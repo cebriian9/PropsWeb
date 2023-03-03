@@ -45,9 +45,7 @@
                 <!--Menu desplegable-->
                 <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column justify-content-center">
 
-                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-                        aria-label="Toggle navigation">
+                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="h3 text-light" id="tongleNav"><i class="fa-solid fa-bars"></i></span>
                     </button>
                     <div>
@@ -72,12 +70,25 @@
 
             </div>
             <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
+                <?php
+                session_start();
+                
+                if (!$_SESSION['autenticado']) {
+                    
+                
+                ?>
                 <!--Inicio de sesion-->
-                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php"
-                        class="nav-link ">Inicio Sesion</a></button>
-                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php"
-                        class="nav-link ">Comenzar</a></button>
+                <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                 <!--//Inicio de sesion-->
+                <?php
+                }else{
+                    ?>
+                    <i class="fa-solid fa-user ico"></i>
+                    <p>Hola, </p>
+                    <?php
+                }
+                ?>
             </div>
         </div>
 
@@ -104,8 +115,7 @@
         <!--//cabecera(foto)-->
     </header>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
-        <path fill="#826541" fill-opacity="1"
-            d="M0,64L120,85.3C240,107,480,149,720,165.3C960,181,1200,171,1320,165.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
+        <path fill="#826541" fill-opacity="1" d="M0,64L120,85.3C240,107,480,149,720,165.3C960,181,1200,171,1320,165.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
         </path>
     </svg>
     <!--//encabezado-->
@@ -123,8 +133,7 @@
             <div class="row mt-5">
                 <div class="col d-flex align-items-center  order-2 order-lg-0">
                     <picture>
-                        <img src="../multimedia/imagenes/decoros/foto-prmocional.jpg" class="img-fluid rounded-4"
-                            alt="Lo sentimos, no esta disponible la imagen">
+                        <img src="../multimedia/imagenes/decoros/foto-prmocional.jpg" class="img-fluid rounded-4" alt="Lo sentimos, no esta disponible la imagen">
                     </picture>
                 </div>
                 <div class="col-12 col-lg">
@@ -163,8 +172,7 @@
                 <div class="row row-cols-1 row-cols-md-3 g-4">
                     <div class="col-12 col-xl">
                         <div class="card">
-                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg"
-                                class="card-img-top" alt="Hollywood Sign on The Hill" />
+                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="Hollywood Sign on The Hill" />
                             <div class="card-body">
                                 <h5 class="card-title">Web Profesional</h5>
                                 <p class="card-text">
@@ -178,8 +186,7 @@
                     </div>
                     <div class="col-12 col-xl">
                         <div class="card">
-                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/solar.jpeg"
-                                class="card-img-top" alt="Palm Springs Road" />
+                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/solar.jpeg" class="card-img-top" alt="Palm Springs Road" />
                             <div class="card-body">
                                 <h5 class="card-title">Web Negocio</h5>
                                 <p class="card-text">
@@ -192,8 +199,7 @@
                     </div>
                     <div class="col">
                         <div class="card">
-                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page279/tropiko.jpeg"
-                                class="card-img-top" alt="Los Angeles Skyscrapers" />
+                            <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page279/tropiko.jpeg" class="card-img-top" alt="Los Angeles Skyscrapers" />
                             <div class="card-body">
                                 <h5 class="card-title">Web Restaurante</h5>
                                 <p class="card-text">
@@ -232,10 +238,8 @@
 
                         <div class="d-flex flex-column justify-content-center ">
                             <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a
-                                    href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php"
-                                    class="nav-link ">Comenzar</a></button>
+                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                             <!--//Inicio de sesion-->
                         </div>
                     </div>
@@ -259,12 +263,7 @@
 
                         <!--solo para administrador-->
 
-                        <?php
-                        session_name("loginUsuario");
-                        session_start();
 
-                        echo $_SESSION['autenticado'];
-                        ?>
                         <hr>
                         <p class="mb-0">Administrador:</p>
                         <hr class="w-25 my-0">
@@ -274,10 +273,9 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Vista de productos</a>
                         </li>
-                        
+
                         <hr>
-                        <?php
-                        ?>
+
                     </ul>
                 </div>
 
@@ -285,7 +283,7 @@
                 <div class="col">
 
                     <p>
-                        
+
                     </p>
                 </div>
             </div>
