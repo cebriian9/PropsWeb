@@ -34,7 +34,6 @@ if (!strcmp($_REQUEST['enviar'], "borrar")){
         echo 'admin';
         $conexion->query($sql);
 
-        
     }
     
     //quitar de admin

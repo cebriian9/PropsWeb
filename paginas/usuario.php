@@ -41,6 +41,8 @@
 
     //exporto todas las funciones de mostrar nombre y esas pijadas
     include "../php/pijadas.inc.php";
+
+    include "../php/productos.inc.php";
     ?>
 
     <!--encabezado-->
@@ -71,9 +73,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-light fs-5 fw-medium" href="usuario.php">Cuenta</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
-                                </li>
+                                
                             </ul>
                         </div>
 
@@ -178,7 +178,7 @@
                         </div>
                         <h3>Todos los usuarios:</h3><br>
                         <form action="../php/usuarios.inc.php" method="post">
-                            <div class="overflow-scroll overflow-x-hidden" style="max-height: 300px;">
+                            <div class="overflow-scroll" style="max-height: 300px;">
                                 <table class="table">
                                     <tr class="table-primary">
                                         <th>ID</th>
@@ -210,33 +210,40 @@
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-cart-shopping ico"></i>
                         </div>
-                        <h3>Todos los usuarios:</h3><br>
-                        <div class="overflow-scroll overflow-x-hidden" style="max-height: 300px;">
-                            <table class="table">
-                                <tr class="table-primary">
-                                    <th>ID</th>
-                                    <th>nombre</th>
-                                    <th>Categoria</th>
-                                    <th>Estilo</th>
-                                    <th>Descripcion</th>
-                                    <th>Imagen</th>
-                                </tr>
+                        <h3>Todos los Productos:</h3><br>
+                        <form action="#" method="post">
+                            <div class="overflow-scroll" style="max-height: 300px;">
+                                <table class="table">
+                                    <tr class="table-primary">
+                                        <th>ID</th>
+                                        <th>nombre</th>
+                                        <th>Categoria</th>
+                                        <th>Estilo</th>
+                                        <th>Descripcion</th>
+                                        <th>Imagen</th>
+                                        <th></th>
+                                    </tr>
 
-                                <!--php inserte motrar BD-->
-                                <?php
+                                    <!--php inserte motrar BD-->
+                                    <?php
+                                    mostrarAllProductos($conexion);
+                                    ?>
 
-                                ?>
+                                </table>
+                            </div>
+                            <button type="submit" name="enviarPro" value="borrar" class="btn bg-danger-subtle fw-bolder fs-5 my-2">Borrar</button>
 
-                            </table>
-                        </div>
-
+                        </form>
 
                     </div>
                     <div class="container border border-dark border-2 rounded-4 mt-4 p-4">
                         <p class="h4">Añadir productos</p>
-                        <form action="../php/productos.inc.php" method="post" class="d-flex flex-column justify-content-between gap-4">
+                        <form action="#" method="post" class="d-flex flex-column justify-content-between gap-4">
 
+                            <span>Nombre:<span style='color:red;'>*</span></span>
                             <input type="text" class="form-control " name="nombre" placeholder="Nombre (max20)">
+
+                            <span>Descripcion: <span style='color:red;'>*</span> </span>
                             <input type="text" class="form-control " name="descripcion" placeholder="Descripcion (max 200)">
 
                             <span>Categorias:</span>
@@ -256,12 +263,29 @@
                             </select>
 
                             <span>Subir Imagen:</span>
-                            <input type="file" class="form-control">
-                            <span>O escribe la url:</span>
+                            <input type="file" name="imagen" class="form-control">
+                            <span>O escribe la url:<span style='color:red;'>*</span></span>
                             <input type="text" class="form-control " name="urlImagen" placeholder="url de Imagen">
 
-                            <span>Archivo:</span>
+                            <span>Archivo:<span style='color:red;'>*</span></span>
                             <input type="text" class="form-control " name="urlArchivo" placeholder="url de platillas">
+
+                            <?php
+                            //comprobar que enviar fue pulsado y esos campos no esten vacios
+                            if (
+                                isset($_REQUEST['enviar'])
+                                && !empty(trim($_REQUEST['nombre']))
+                                && !empty(trim($_REQUEST['descripcion']))
+                                && !empty(trim($_REQUEST['urlImagen']))
+                                && !empty(trim($_REQUEST['urlArchivo']))
+                            ) {
+                                guardarProducto($conexion);
+                            } else {
+                                if (isset($_REQUEST['enviar'])) {
+                                    echo "<p style='color:red;'>**Rellene los campos vacios** </p>";
+                                }
+                            }
+                            ?>
 
                             <button type="submit" name="enviar" value="producto" class="btn bg-dark fw-bolder fs-5 my-2 text-light">Subir producto</button>
 

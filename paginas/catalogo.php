@@ -29,7 +29,7 @@
 </head>
 
 <body>
-<?php
+    <?php
     if (!isset($_SESSION)) {
         // inicio la sesión
         session_start();
@@ -65,9 +65,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-light fs-5 fw-medium" href="usuario.php">Cuenta</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
-                                </li>
+
                             </ul>
                         </div>
 
@@ -120,52 +118,59 @@
                 <div class="row gap-3">
                     <!--buscador-->
                     <span>Nombre:</span>
-                    <form action="" method="post" class="d-flex justify-content-between" autocomplete="on">
+                    <form action="#" method="post" autocomplete="on">
 
-                        <input class="form-control " type="search" list="buscador" placeholder="Buscar" aria-label="Buscar">
-                        <button class="btn btn-dark rounded-4 mx-2" type="submit"><i class="fa-solid fa-magnifying-glass "></i></button>
+                        <div class="d-flex justify-content-between mb-3">
+                            <input class="form-control " type="search" list="buscador" name="nombre" placeholder="Buscar" aria-label="Buscar">
+                            <button class="btn btn-dark rounded-4 mx-2" type="submit" name="filtro"><i class="fa-solid fa-magnifying-glass "></i></button><!--submit-->
+                        </div>
+
+
+                        <!--//buscador-->
+                        <div class="accordion accordion-flush shadow">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCategoria"><!--cambio de id para desplegable-->
+                                        <!--Nombre filtro-->
+                                        Categorias
+                                    </button>
+                                </h2>
+                                <!--cambio de id para desplegable-->
+                                <div id="flush-collapseCategoria" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+
+                                        <input type="checkbox" name="categoria[]" value="negocio" class="form-check-input"> Negocio <br>
+                                        <input type="checkbox" name="categoria[]" value="blog" class="form-check-input"> Blog <br>
+                                        <input type="checkbox" name="categoria[]" value="restaurante" class="form-check-input"> Restaurante <br>
+                                        <input type="checkbox" name="categoria[]" value="personal" class="form-check-input"> Personal <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion accordion-flush shadow">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEstilo"><!--cambio de id para desplegable-->
+                                        <!--Nombre filtro-->
+                                        Estilo
+                                    </button>
+                                </h2>
+                                <!--cambio de id para desplegable-->
+                                <div id="flush-collapseEstilo" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <!--PHP poner las cate como en el examen-->
+                                        <input type="checkbox" name="estilo[]" value="moderno" class="form-check-input"> Moderno <br>
+                                        <input type="checkbox" name="estilo[]" value="alegre" class="form-check-input"> Alegre <br>
+                                        <input type="checkbox" name="estilo[]" value="Colorido" class="form-check-input"> Colorido <br>
+                                        <input type="checkbox" name="estilo[]" value="simple" class="form-check-input"> Minimalista <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </form>
-                    <!--//buscador-->
-                    <div class="accordion accordion-flush shadow">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseCategoria"><!--cambio de id para desplegable-->
-                                    <!--Nombre filtro-->
-                                    Categorias
-                                </button>
-                            </h2>
-                            <!--cambio de id para desplegable-->
-                            <div id="flush-collapseCategoria" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <!--PHP poner las cate como en el examen-->
-                                    <p>pepe</p>
-                                    <p>pepe2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion accordion-flush shadow">
-                        <div class="accordion-item">
-                            <h2 class="accordion-header">
-                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEstilo"><!--cambio de id para desplegable-->
-                                    <!--Nombre filtro-->
-                                    Estilo
-                                </button>
-                            </h2>
-                            <!--cambio de id para desplegable-->
-                            <div id="flush-collapseEstilo" class="accordion-collapse collapse">
-                                <div class="accordion-body">
-                                    <!--PHP poner las cate como en el examen-->
-                                    <p>pepe</p>
-                                    <p>pepe2</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
                     <div>
-
+                        <!--????-->
                     </div>
                 </div>
             </div>
@@ -188,91 +193,65 @@
             <div class="col">
                 <div>
                     <div class="row">
+                        <?php
+                        if (isset($_REQUEST['filtro'])) {
 
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                            if (isset($_REQUEST['categoria'])) {
+                                $categorias = $_REQUEST['categoria'];
+                                $categorias = "'" . implode("', '", $categorias) . "'";
+                                $categorias = substr($categorias, 1, strlen($categorias) - 2);
+                            }else{
+                                $categorias='';
+                            }
+
+
+                            if (isset($_REQUEST['estilo'])) {
+                                $estilo = $_REQUEST['estilo'];
+                                $estilo = "'" . implode("', '", $estilo) . "'";
+                                $estilo = substr($estilo, 1, strlen($estilo) - 2);
+                            }else{
+                                $estilo='';
+                            }
+
+                            if (isset($_REQUEST['nombre'])) {
+                                $nombre=trim($_REQUEST['nombre']);
+                            }else{
+                                $nombre='';
+                            }
+
+                            if ($categorias==null && $estilo==null && $nombre==null) {
+                                $sql = "SELECT * FROM productos ";
+                            }else {
+                                $sql = "SELECT * FROM productos WHERE categoria IN ('$categorias') OR estilo IN ('$estilo') OR nombre = '$nombre'";
+                            }
+
+                            
+                        } else {
+                            $sql = "SELECT * FROM productos ";
+                        }
+
+
+                        $resultado = $conexion->query($sql);
+                        $row = $resultado->fetch_object();
+
+                        while ($row != null) {
+                        ?>
+                            <div class="col-12 col-md-6 col-lg-4">
+                                <div class="card mb-5">
+                                    <img src="<?php echo $row->urlimagen ?>" class="card-img-top" alt="...">
+                                    <div class="card-body">
+                                        <h5 class="card-title"><?php echo $row->nombre ?></h5>
+                                        <span><?php echo $row->categoria ?>, <?php echo $row->estilo ?></span>
+                                        <p class="card-text"><?php echo $row->descripcion ?></p>
+                                        <a href="<?php echo $row->urlarchivo ?>" class="btn btn-dark">Descargar</a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-12 col-md-6 col-lg-4">
-                            <div class="card mb-5">
-                                <img src="https://plantillashtmlgratis.com/wp-content/uploads/2019/images/page280/webwing.jpeg" class="card-img-top" alt="...">
-                                <div class="card-body">
-                                    <h5 class="card-title">Card title</h5>
-                                    <p class="card-text">Some quick example text to build on the card title and make up
-                                        the bulk of the card's content.</p>
-                                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                                </div>
-                            </div>
-                        </div>
-
+                        <?php
+                            //bajo de linea
+                            $row = $resultado->fetch_object();
+                        }
+                        ?>
                     </div>
                 </div>
             </div>
@@ -339,7 +318,7 @@
 
 
                         <?php
-                        
+
                         if (isset($_SESSION["autenticado"]) == true)
                             if (esAdmin($conexion)) {
                         ?>

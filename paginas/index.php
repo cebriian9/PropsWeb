@@ -65,9 +65,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-light fs-5 fw-medium" href="usuario.php">Cuenta</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-light fs-5 fw-medium" href="#">Contacto</a>
-                                </li>
+                                
                             </ul>
                         </div>
 

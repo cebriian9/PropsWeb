@@ -123,23 +123,14 @@ function mostrarAllProductos($conexion)
 
     while ($row != null) {
         echo "<tr>";
-        echo "<td>$row->id_user </td>";
-        echo "<td>$row->usuario </td>";
-
-        if (isset($row->nombre))
+        echo "<td>$row->id_producto </td>";
         echo "<td>$row->nombre </td>";
-
-        if (isset($row->apellidos))
-        echo "<td>$row->apellidos </td>";
-
-        if (mostrarAdmin($conexion,$row->id_user)) {
-            $admin="X";
-        }else {
-            $admin="";
-        }
-        echo"<td>$admin</td>";
-
-        echo "<td > <input type='checkbox' name='marcados[]' value='$row->id_user'> </td>";
+        echo "<td>$row->categoria </td>";
+        echo "<td>$row->estilo </td>";
+        echo "<td>$row->descripcion </td>";
+        echo "<td>$row->imagen </td>";
+        
+        echo "<td > <input type='checkbox' name='marcaPro[]' value='$row->id_producto'> </td>";
 
 
         
