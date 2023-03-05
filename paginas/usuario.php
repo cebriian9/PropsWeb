@@ -179,7 +179,7 @@
                         <h3>Todos los usuarios:</h3><br>
                         <form action="../php/usuarios.inc.php" method="post">
                             <div class="overflow-scroll overflow-x-hidden" style="max-height: 300px;">
-                                <table class="table table">
+                                <table class="table">
                                     <tr class="table-primary">
                                         <th>ID</th>
                                         <th>Usuario</th>
@@ -211,21 +211,61 @@
                             <i class="fa-solid fa-cart-shopping ico"></i>
                         </div>
                         <h3>Todos los usuarios:</h3><br>
+                        <div class="overflow-scroll overflow-x-hidden" style="max-height: 300px;">
+                            <table class="table">
+                                <tr class="table-primary">
+                                    <th>ID</th>
+                                    <th>nombre</th>
+                                    <th>Categoria</th>
+                                    <th>Estilo</th>
+                                    <th>Descripcion</th>
+                                    <th>Imagen</th>
+                                </tr>
 
-                        <table class="table">
-                            <tr class="table-primary">
-                                <th>ID</th>
-                                <th>nombre</th>
-                                <th>Categoria</th>
-                                <th>Estilo</th>
-                                <th>Descripcion</th>
-                                <th>Imagen</th>
-                            </tr>
+                                <!--php inserte motrar BD-->
+                                <?php
 
-                            <!--php inserte motrar BD-->
+                                ?>
+
+                            </table>
+                        </div>
 
 
-                        </table>
+                    </div>
+                    <div class="container border border-dark border-2 rounded-4 mt-4 p-4">
+                        <p class="h4">Añadir productos</p>
+                        <form action="../php/productos.inc.php" method="post" class="d-flex flex-column justify-content-between gap-4">
+
+                            <input type="text" class="form-control " name="nombre" placeholder="Nombre (max20)">
+                            <input type="text" class="form-control " name="descripcion" placeholder="Descripcion (max 200)">
+
+                            <span>Categorias:</span>
+                            <select name="categoria" class="form-control ">
+                                <option value="negocio">Negocio</option>
+                                <option value="blog">Blog</option>
+                                <option value="restaurante">Restaurante</option>
+                                <option value="personal">Personal</option>
+                            </select>
+
+                            <span>Estilo:</span>
+                            <select name="estilo" class="form-control ">
+                                <option value="moderno">Moderno</option>
+                                <option value="alegre">Alegre</option>
+                                <option value="colorido">Colorido</option>
+                                <option value="simple">Simple</option>
+                            </select>
+
+                            <span>Subir Imagen:</span>
+                            <input type="file" class="form-control">
+                            <span>O escribe la url:</span>
+                            <input type="text" class="form-control " name="urlImagen" placeholder="url de Imagen">
+
+                            <span>Archivo:</span>
+                            <input type="text" class="form-control " name="urlArchivo" placeholder="url de platillas">
+
+                            <button type="submit" name="enviar" value="producto" class="btn bg-dark fw-bolder fs-5 my-2 text-light">Subir producto</button>
+
+                        </form>
                     </div>
                 </div>
             </div>

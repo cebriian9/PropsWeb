@@ -112,4 +112,39 @@ function mostrarAllDatos($conexion)
         $row = $resultado->fetch_object();
     }
 }
+
+function mostrarAllProductos($conexion)
+{
+
+    $sql = "SELECT * FROM productos";
+
+    $resultado = $conexion->query($sql);
+    $row = $resultado->fetch_object();
+
+    while ($row != null) {
+        echo "<tr>";
+        echo "<td>$row->id_user </td>";
+        echo "<td>$row->usuario </td>";
+
+        if (isset($row->nombre))
+        echo "<td>$row->nombre </td>";
+
+        if (isset($row->apellidos))
+        echo "<td>$row->apellidos </td>";
+
+        if (mostrarAdmin($conexion,$row->id_user)) {
+            $admin="X";
+        }else {
+            $admin="";
+        }
+        echo"<td>$admin</td>";
+
+        echo "<td > <input type='checkbox' name='marcados[]' value='$row->id_user'> </td>";
+
+
+        
+        //bajo de linea
+        $row = $resultado->fetch_object();
+    }
+}
 ?>
