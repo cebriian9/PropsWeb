@@ -28,6 +28,13 @@
 </head>
 
 <body>
+<?php
+    if (!isset($_SESSION)) {
+        // inicio la sesión
+        session_start();
+    }
+    
+    ?>
 
     <header class=" text-white ">
         <!--encabezado-->
@@ -46,8 +53,11 @@
     </header>
     <?php
     
-
-    
+        if (isset($_SESSION["autenticado"]) == true) {
+            // inicio la sesión
+            echo 'redi';
+            header("Location:index.php");
+        }
     ?>
     <!--body-->
     <div class=" d-flex flex-column justify-content-center align-items-center my-5">

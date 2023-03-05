@@ -1,7 +1,5 @@
 <?php
 
-
-
 @$conexion = new mysqli('localhost', 'props', 'props', 'propsweb');
 $error = $conexion->connect_errno;
 if ($error != null) {

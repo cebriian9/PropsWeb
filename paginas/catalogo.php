@@ -29,7 +29,7 @@
 </head>
 
 <body>
-    <?php
+<?php
     if (!isset($_SESSION)) {
         // inicio la sesión
         session_start();
@@ -78,16 +78,9 @@
             </div>
             <div class="col d-flex flex-column justify-content-center align-items-center flex-lg-row ">
                 <?php
-                if (!isset($_SESSION)) {
-                    // inicio la sesión
-                    session_start();
-                }
-
-
-                if (empty($_SESSION)) {
+                if (isset($_SESSION["autenticado"]) != true) {
 
                 ?>
-
                     <!--Inicio de sesion-->
                     <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
                     <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
@@ -97,7 +90,10 @@
                 } else {
                 ?>
                     <i class="fa-solid fa-user ico"></i>
-                    <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                    <p>Hola, <?php echo mostrarNombre($conexion) ?>
+                        <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                    </p>
+
                 <?php
                 }
                 ?>
@@ -105,6 +101,7 @@
         </div>
 
         <!--//encabezado-->
+
     </header>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 200">
         <path fill="#826541" fill-opacity="1" d="M0,64L120,85.3C240,107,480,149,720,165.3C960,181,1200,171,1320,165.3L1440,160L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
@@ -299,13 +296,9 @@
 
                         <div class="d-flex flex-column justify-content-center ">
                             <?php
-                            if (!isset($_SESSION)) {
-                                // inicio la sesión
-                                session_start();
-                            }
 
-                            if (empty($_SESSION)) {
 
+                            if (isset($_SESSION["autenticado"]) != true) {
                             ?>
                                 <!--Inicio de sesion-->
                                 <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
@@ -315,7 +308,9 @@
                             } else {
                             ?>
                                 <i class="fa-solid fa-user ico"></i>
-                                <p>Hola, <?php echo mostrarNombre($conexion) ?></p>
+                                <p>Hola, <?php echo mostrarNombre($conexion) ?>
+                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                                </p>
                             <?php
                             }
                             ?>
@@ -344,7 +339,8 @@
 
 
                         <?php
-                        if (!empty($_SESSION))
+                        
+                        if (isset($_SESSION["autenticado"]) == true)
                             if (esAdmin($conexion)) {
                         ?>
                             <hr>
