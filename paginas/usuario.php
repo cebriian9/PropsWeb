@@ -30,7 +30,7 @@
         // inicio la sesión
         session_start();
     }
-    include "../php/pijadas.inc.php";
+
 
     //compruebo que esta autenticado, sino al registro
     if (isset($_SESSION["autenticado"]) != true) {
@@ -40,7 +40,7 @@
     }
 
     //exporto todas las funciones de mostrar nombre y esas pijadas
-    include "../php/pijadas.inc.php"
+    include "../php/pijadas.inc.php";
     ?>
 
     <!--encabezado-->
@@ -125,8 +125,18 @@
                 <!-- Tab links -->
                 <div class="tab d-flex flex-column flex-md-row flex-xl-column justify-content-center gap-4 ">
                     <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabs(event, 'Datos')" id="defaultOpen">Datos</button>
-                    <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabs(event, 'usuarios')">usuarios(solo admins)</button>
-                    <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabs(event, 'productos')">productos(solo admins)</button>
+
+                    <?php
+
+                    if (isset($_SESSION["autenticado"]) == true)
+                        if (esAdmin($conexion)) {
+                    ?>
+                        <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabs(event, 'usuarios')">usuarios(solo admins)</button>
+                        <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabs(event, 'productos')">productos(solo admins)</button>
+                    <?php
+                        }
+                    ?>
+
                 </div>
                 <!-- //Tab links -->
                 <script>
@@ -144,17 +154,19 @@
                         </div>
 
                         <?php
-                            
-                            
+                        $row = mostrarDatos($conexion);
+
                         ?>
 
                         <h3>Datos de usuario</h3><br>
-                        <p>Usuario: <span></span></p>
-                        <p>Correo: <span></span></p>
+                        <p>Usuario: <span><?php echo $row->usuario ?></span></p>
+
                         <br>
-                        <p>Nombre: <span></span></p>
-                        <p>Apellidos: <span></span></p>
-                        <p>Fecha de Nacimiento: <span></span></p>
+                        <p>Nombre: <span><?php echo $row->nombre ?></span></p>
+                        <p>Apellidos: <span><?php echo $row->apellidos ?></span></p>
+
+
+
 
                     </div>
                 </div>
@@ -165,22 +177,31 @@
                             <i class="fa-solid fa-user ico"></i>
                         </div>
                         <h3>Todos los usuarios:</h3><br>
+                        <form action="../php/usuarios.inc.php" method="post">
+                            <div class="overflow-scroll overflow-x-hidden" style="max-height: 300px;">
+                                <table class="table table">
+                                    <tr class="table-primary">
+                                        <th>ID</th>
+                                        <th>Usuario</th>
 
-                        <table class="table table">
-                            <tr class="table-primary">
-                                <th>Usuario</th>
-                                <th>Correo</th>
-                                <th>Fecha User</th>
-                                <th>Nombre</th>
-                                <th>Apellidos</th>
-                                <th>Fecha Nac</th>
-                            </tr>
+                                        <th>Nombre</th>
+                                        <th>Apellidos</th>
+                                        <th class="col-1">Admin</th>
+                                        <th class="col-1">Marcar</th>
+                                    </tr>
 
-                            <!--php inserte motrar BD-->
+                                    <!--php inserte motrar BD-->
+                                    <?php
+                                    mostrarAllDatos($conexion);
 
+                                    ?>
 
-                        </table>
-
+                                </table>
+                            </div>
+                            <button type="submit" name="enviar" value="borrar" class="btn bg-danger-subtle fw-bolder fs-5 my-2">Borrar</button>
+                            <button type="submit" name="enviar" value="admin" class="btn btn-dark fw-bolder fs-5 my-2">Hacer Admin</button>
+                            <button type="submit" name="enviar" value="noAdmin" class="btn btn-dark fw-bolder fs-5 my-2">Quitar de Admin</button>
+                        </form>
                     </div>
                 </div>
 
@@ -271,7 +292,7 @@
 
 
                         <?php
-                        
+
                         if (isset($_SESSION["autenticado"]) == true)
                             if (esAdmin($conexion)) {
                         ?>
