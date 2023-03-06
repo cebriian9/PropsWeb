@@ -29,7 +29,7 @@
 <?php 
     $color='';
     if (!strcmp($_COOKIE['color'],'negro')) {
-        $color='bg-black';
+        $color='fondo';
     }
 ?>
 <body class="<?php echo $color; ?>">
@@ -97,7 +97,7 @@
 
                 ?>
                     <!--Inicio de sesion-->
-                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
                     <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                     <!--//Inicio de sesion-->
 
@@ -106,7 +106,7 @@
                 ?>
                     <i class="fa-solid fa-user ico"></i>
                     <p>Hola, <?php echo mostrarNombre($conexion) ?>
-                        <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                        <a href="../php/logOut.php" class="nav-link text-dark fw-semibold text-decoration-underline">Cerrar Sesión</a>
                     </p>
 
                 <?php
@@ -155,9 +155,9 @@
             <!--Tab contenido-->
             <div class="col fs-5">
 
-                <div id="Datos" class="tabContent">
+                <div id="Datos" class="tabContent ">
 
-                    <div class="container border border-dark border-2 rounded-4 p-4">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-user ico"></i>
                         </div>
@@ -181,7 +181,7 @@
                 </div>
 
                 <div id="usuarios" class="tabContent">
-                    <div class="container border border-dark border-2 rounded-4 p-4">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-user ico"></i>
                         </div>
@@ -215,7 +215,7 @@
                 </div>
 
                 <div id="productos" class="tabContent">
-                    <div class="container border border-dark border-2 rounded-4 p-4">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-cart-shopping ico"></i>
                         </div>
@@ -245,7 +245,7 @@
                         </form>
 
                     </div>
-                    <div class="container border border-dark border-2 rounded-4 mt-4 p-4">
+                    <div class="container border border-dark border-2 rounded-4 mt-4 p-4 bg-light">
                         <p class="h4">Añadir productos</p>
                         <form action="#" method="post" enctype="multipart/form-data" class="d-flex flex-column justify-content-between gap-4">
 
@@ -314,11 +314,13 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Idioma:</p>
-                        <select name="idioma" id="idioma" class="btn btn-dark text-white mb-4">
-                            <option value="español">Español</option>
-                            <option value="ingles">Ingles</option>
-                        </select>
+                        <p class="fs-4">Contraste:</p>
+                        <form action="../php/cambioColor.php" method="post" name="formColor">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                                <option value="blanco">Normal</option>
+                                <option value="negro">Oscuro</option>
+                            </select>
+                        </form>
 
                         <div class="d-flex flex-column justify-content-center ">
                             <?php
@@ -327,7 +329,7 @@
                             if (isset($_SESSION["autenticado"]) != true) {
                             ?>
                                 <!--Inicio de sesion-->
-                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
                                 <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                                 <!--//Inicio de sesion-->
                             <?php
@@ -335,7 +337,7 @@
                             ?>
                                 <i class="fa-solid fa-user ico"></i>
                                 <p>Hola, <?php echo mostrarNombre($conexion) ?>
-                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
                                 </p>
                             <?php
                             }
@@ -356,13 +358,8 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="#">Contacto</a>
-                        </li>
-
-
+                        
                         <!--solo para administrador-->
-
 
                         <?php
 
@@ -397,11 +394,12 @@
         </div>
 
     </footer>
-
 </body>
 <script>
-    //Coje el elemento con el valor default para abrirlo
-    document.getElementById("defaultOpen").click();
+    function envioColor() {
+  document.formColor.submit()
+}
+document.getElementById("defaultOpen").click();
 </script>
-
 </html>
+

@@ -66,6 +66,3 @@ function openTabsRegistro(evt, ajuste) {
   }
   
 
-function envioColor() {
-  document.formColor.submit()
-}

@@ -26,15 +26,16 @@
     <!--
         https://plantillashtmlgratis.com/todas-las-plantillas/plantilla/plantilla-web-gratuita-tropiko/
     -->
-    
+
 </head>
-<?php 
-    $color='';
-    if (!strcmp($_COOKIE['color'],'negro')) {
-        $color='bg-black';
-    }
+<?php
+$color = '';
+if (!strcmp($_COOKIE['color'], 'negro')) {
+    $color = 'fondo';
+}
 ?>
-<body class="<?php echo $color; ?>">
+
+<body class="<?php echo $color; ?> ">
 
     <?php
     if (!isset($_SESSION)) {
@@ -87,7 +88,7 @@
 
                 ?>
                     <!--Inicio de sesion-->
-                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                    <button class="btn  text-white my-2 fs-5 fw-medium "><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
                     <button class="btn btn-dark fw-bolder fs-5 my-2 "><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                     <!--//Inicio de sesion-->
 
@@ -96,7 +97,7 @@
                 ?>
                     <i class="fa-solid fa-user ico"></i>
                     <p>Hola, <?php echo mostrarNombre($conexion) ?>
-                        <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                        <a href="../php/logOut.php" class="nav-link text-dark fw-semibold text-decoration-underline">Cerrar sesión</a>
                     </p>
 
                 <?php
@@ -134,7 +135,7 @@
     <!--//encabezado-->
 
     <!--body-->
-    <div class="container">
+    <div class="container ">
 
         <!--Contenido inicial-->
         <div class=" bg-light p-5 rounded-5 my-4">
@@ -152,20 +153,24 @@
                 <div class="col-12 col-lg">
                     <div class="row">
                         <p class="fs-2"><span class="h1">1·</span> Elige el diseño que mas te guste</p>
-                        <p class="fs-5">Puedes elegir cualquier diseño de todos los que disponemos buscando en todas
-                            nuestras categorias</p>
+                        <p class="fs-5">Échale un vistazo a nuestras plantillas de diseño de sitios web,
+                            seguro que encuentras algo que se adapte a tu estilo y necesidades.
+                        </p>
                     </div>
                     <hr>
                     <div class="row">
-                        <p class="fs-2"><span class="h1">1·</span> Elige el diseño que mas te guste</p>
-                        <p class="fs-5">Puedes elegir cualquier diseño de todos los que disponemos buscando en todas
-                            nuestras categorias</p>
+                        <p class="fs-2"><span class="h1">2·</span> Descargua una plantilla</p>
+                        <p class="fs-5">¡No pierdas el tiempo! Descarga la plantilla que más te guste
+                            y empieza a trabajar en tu sitio web de inmediato.
+                        </p>
                     </div>
                     <hr>
                     <div class="row">
-                        <p class="fs-2"><span class="h1">1·</span> Elige el diseño que mas te guste</p>
-                        <p class="fs-5">Puedes elegir cualquier diseño de todos los que disponemos buscando en todas
-                            nuestras categorias</p>
+                        <p class="fs-2"><span class="h1">3·</span> Personaliza tu plantilla</p>
+                        <p class="fs-5"> Ahora viene la parte divertida, personaliza la plantilla
+                            a tu manera. Cambia los colores, el texto, agrega imágenes, todo lo que
+                            quieras para que tu sitio web sea único y represente tu marca o negocio.
+                        </p>
                     </div>
                 </div>
             </div>
@@ -189,11 +194,12 @@
                             <div class="card-body">
                                 <h5 class="card-title">Web Profesional</h5>
                                 <p class="card-text">
-                                    This is a longer card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.
+                                    Esta plantilla de diseño de sitios web tiene un diseño moderno
+                                    y elegante, con grandes imágenes en la página de inicio que te
+                                    ayudarán a llamar la atención de tus visitantes
                                 </p>
 
-                                <button class="btn btn-outline-dark">Descargar</button>
+                                <button class="btn btn-outline-dark"><a href="catalogo.php" class="nav-link">Descargar</a></button>
                             </div>
                         </div>
                     </div>
@@ -203,10 +209,10 @@
                             <div class="card-body">
                                 <h5 class="card-title">Web Negocio</h5>
                                 <p class="card-text">
-                                    This is a longer card with supporting text below as a natural lead-in to
-                                    additional content. This content is a little bit longer.
+                                    Destaca tus productos y servicios en línea con nuestra plantilla de
+                                    diseño empresarial, que presenta un diseño claro y una navegación fácil de usar
                                 </p>
-                                <button class="btn btn-outline-dark">Descargar</button>
+                                <button class="btn btn-outline-dark"><a href="catalogo.php" class="nav-link">Descargar</a></button>
                             </div>
                         </div>
                     </div>
@@ -216,11 +222,11 @@
                             <div class="card-body">
                                 <h5 class="card-title">Web Restaurante</h5>
                                 <p class="card-text">
-                                    This is a longer card with supporting text below as a natural
-                                    lead-in to
-                                    additional content.
+                                    Diseña el sitio web perfecto para tu restaurante con nuestro 
+                                    diseño web especializado, que destaca tu deliciosa comida con 
+                                    imágenes de alta calidad y un diseño moderno
                                 </p>
-                                <button class="btn btn-outline-dark">Descargar</button>
+                                <button class="btn btn-outline-dark"><a href="catalogo.php" class="nav-link">Descargar</a></button>
                             </div>
                         </div>
                     </div>
@@ -229,7 +235,7 @@
 
             </div>
             <!--//cartas-->
-            <a href="catalogo.php" class="btn btn-dark w-50"><span class="fs-4">Buscar mas...</span></a>
+            <a href="catalogo.php" class="btn btn-dark w-50"><span class="fs-4">Buscar más...</span></a>
         </div>
 
 
@@ -243,13 +249,12 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Color:</p>
+                        <p class="fs-4">Contraste:</p>
                         <form action="../php/cambioColor.php" method="post" name="formColor">
                             <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
                                 <option value="blanco">Normal</option>
                                 <option value="negro">Oscuro</option>
                             </select>
-                            <input type="submit" value="aaaa">
                         </form>
 
                         <div class="d-flex flex-column justify-content-center ">
@@ -259,7 +264,7 @@
                             if (isset($_SESSION["autenticado"]) != true) {
                             ?>
                                 <!--Inicio de sesion-->
-                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
+                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
                                 <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
                                 <!--//Inicio de sesion-->
                             <?php
@@ -267,7 +272,7 @@
                             ?>
                                 <i class="fa-solid fa-user ico"></i>
                                 <p>Hola, <?php echo mostrarNombre($conexion) ?>
-                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesion</a>
+                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
                                 </p>
                             <?php
                             }
@@ -288,10 +293,6 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="#">Contacto</a>
-                        </li>
-
 
                         <!--solo para administrador-->
 
@@ -330,5 +331,10 @@
 
     </footer>
 </body>
+<script>
+    function envioColor() {
+        document.formColor.submit()
+    }
+</script>
 
 </html>

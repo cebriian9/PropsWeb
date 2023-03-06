@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesion</title>
+    <title>Inicio de Sesión</title>
 
     <!--favicon-->
     <link rel="icon" type="image/jpg" href="../multimedia/imagenes/decoros/logo.png" />
@@ -31,7 +31,7 @@
 <?php 
     $color='';
     if (!strcmp($_COOKIE['color'],'negro')) {
-        $color='bg-black';
+        $color='';
     }
 ?>
 <body class="<?php echo $color; ?>">
@@ -71,8 +71,7 @@
         <!-- Tab links -->
         <div class="tab">
 
-            <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'inicio')">Iniciar
-                sesion</button>
+            <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'inicio')">Iniciar Sesión</button>
 
             <button class="tabLinks btn btn-outline-dark fs-5" onclick="openTabsRegistro(event, 'registro')" id="defaultOpen">Registrarse</button>
         </div>
@@ -83,7 +82,7 @@
             <div class="bg-light p-5 rounded-5 shadow" style="width: 25rem">
                 <form action="#" method="post">
 
-                    <div class="text-center fs-1 fw-bold">Iniciar sesion</div>
+                    <div class="text-center fs-1 fw-bold">Iniciar Sesión</div>
                     <div class="input-group mt-4">
                         <div class="input-group-text ">
                             <i class="fa-solid fa-user"></i>
@@ -164,19 +163,35 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Idioma:</p>
-                        <form action="../php/cambioColor.php" method="post">
-                            <select name="idioma" id="idioma" class="btn btn-dark text-white mb-4">
-                                <option value="español">Español</option>
-                                <option value="ingles">Ingles</option>
+                        <p class="fs-4">Contraste:</p>
+                        <form action="../php/cambioColor.php" method="post" name="formColor">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                                <option value="blanco">Normal</option>
+                                <option value="negro">Oscuro</option>
                             </select>
                         </form>
 
                         <div class="d-flex flex-column justify-content-center ">
-                            <!--Inicio de sesion-->
-                            <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesion</a></button>
-                            <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
-                            <!--//Inicio de sesion-->
+                            <?php
+
+
+                            if (isset($_SESSION["autenticado"]) != true) {
+                            ?>
+                                <!--Inicio de sesion-->
+                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
+                                <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                                <!--//Inicio de sesion-->
+                            <?php
+                            } else {
+                            ?>
+                                <i class="fa-solid fa-user ico"></i>
+                                <p>Hola, <?php echo mostrarNombre($conexion) ?>
+                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
+                                </p>
+                            <?php
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -192,24 +207,29 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="#">Contacto</a>
-                        </li>
-
-
+                        
                         <!--solo para administrador-->
 
-                        <hr>
-                        <p class="mb-0">Administrador:</p>
-                        <hr class="w-25 my-0">
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de usuarios</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Vista de productos</a>
-                        </li>
 
-                        <hr>
+                        <?php
+
+                        if (isset($_SESSION["autenticado"]) == true)
+                            if (esAdmin($conexion)) {
+                        ?>
+                            <hr>
+                            <p class="mb-0">Administrador:</p>
+                            <hr class="w-25 my-0">
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de usuarios</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="text-light " href="usuario.php">Vista de productos</a>
+                            </li>
+
+                            <hr>
+                        <?php
+                            }
+                        ?>
                     </ul>
                 </div>
 
@@ -226,8 +246,13 @@
     </footer>
 </body>
 <script>
-    //Coje el elemento con el valor default para abrirlo
-    document.getElementById("defaultOpen").click();
-</script>
+    function envioColor() {
+  document.formColor.submit()
+}
 
+
+document.getElementById("defaultOpen").click();
+</script>
 </html>
+
+
