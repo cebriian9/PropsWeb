@@ -240,7 +240,7 @@
                     </div>
                     <div class="container border border-dark border-2 rounded-4 mt-4 p-4">
                         <p class="h4">Añadir productos</p>
-                        <form action="#" method="post" class="d-flex flex-column justify-content-between gap-4">
+                        <form action="#" method="post" enctype="multipart/form-data" class="d-flex flex-column justify-content-between gap-4">
 
                             <span>Nombre:<span style='color:red;'>*</span></span>
                             <input type="text" class="form-control " name="nombre" placeholder="Nombre (max20)">

@@ -5,8 +5,13 @@
 
     //no hace falta creo
     $_SESSION["autenticado"] = false;
+    
     session_destroy();
+    session_unset();
 
+    //cookie
+
+    setcookie('PHPSSID','',time()-60);
 
 
 header("Location:../paginas/index.php");

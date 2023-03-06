@@ -23,13 +23,13 @@ function guardarProducto($conexion)
         $categoria = $_REQUEST['categoria'];
         $estilo = $_REQUEST['estilo'];
 
-        //guardarFoto();
+        $foto=guardarFoto();
 
         $urlImg = $_REQUEST['urlImagen'];
         $urlFile = $_REQUEST['urlArchivo'];
 
         //--------------------------------------------------------------------------------cambiar null por foto-----
-        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','foto','$urlImg','$urlFile')";
+        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
         $conexion->query($sql);
 
@@ -40,13 +40,13 @@ function guardarProducto($conexion)
         $categoria = $_REQUEST['categoria'];
         $estilo = $_REQUEST['estilo'];
 
-        //guardarFoto();
+        $foto=guardarFoto();
 
         $urlImg = $_REQUEST['urlImagen'];
         $urlFile = $_REQUEST['urlArchivo'];
 
         //--------------------------------------------------------------------------------cambiar null por foto-----
-        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','foto','$urlImg','$urlFile')";
+        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
     }else {
         echo "<p style='color:red;'>**Ese producto ya existe, compruebe el nombre** </p>";
@@ -56,7 +56,7 @@ function guardarProducto($conexion)
 
 function guardarFoto()
 {
-
+    var_dump($_FILES);
     //comprobamos que la imagen se ha subido
     if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
 
@@ -68,7 +68,7 @@ function guardarFoto()
 
             $nombre = time() . $_FILES['imagen']['name'];
             //lo movemos
-            if (move_uploaded_file($_FILES['imagen']['tmp_name'], "img/" . $nombre)) {
+            if (move_uploaded_file($_FILES['imagen']['tmp_name'], "../multimedia/imagenes/imagenProducto/" . $nombre)) {
                 //se movio
                 // y se mostra
 
