@@ -15,17 +15,9 @@
     <script src="https://kit.fontawesome.com/349b369734.js" crossorigin="anonymous"></script>
 
     <!--BS5-->
-    <?php
-    if (!strcmp($_COOKIE['color'], "blanco")) {
-    ?>
+   
         <link rel="stylesheet" href="../estilos/styles.css">
-    <?php
-    } else {
-    ?>
-        <link rel="stylesheet" href="../estilos/stylesDark.css">
-    <?php
-    }
-    ?>
+   
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!--mi JS-->
@@ -36,8 +28,13 @@
 
 
 </head>
-
-<body>
+<?php 
+    $color='';
+    if (!strcmp($_COOKIE['color'],'negro')) {
+        $color='bg-black';
+    }
+?>
+<body class="<?php echo $color; ?>">
 <?php
     if (!isset($_SESSION)) {
         // inicio la sesión

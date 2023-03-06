@@ -26,12 +26,15 @@
     <!--
         https://plantillashtmlgratis.com/todas-las-plantillas/plantilla/plantilla-web-gratuita-tropiko/
     -->
-    <?php
-    var_dump($_COOKIE['color']);
-    ?>
+    
 </head>
-
-<body class="fondoN">
+<?php 
+    $color='';
+    if (!strcmp($_COOKIE['color'],'negro')) {
+        $color='bg-black';
+    }
+?>
+<body class="<?php echo $color; ?>">
 
     <?php
     if (!isset($_SESSION)) {
