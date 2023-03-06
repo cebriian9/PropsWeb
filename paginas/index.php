@@ -13,20 +13,10 @@
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/349b369734.js" crossorigin="anonymous"></script>
 
-    
-    <!--BS5-->
-    <?php
-    if (!strcmp($_COOKIE['color'], "blanco")) {
-    ?>
-        <link rel="stylesheet" href="../estilos/styles.css">
-    <?php
-    } else {
-    ?>
-        <link rel="stylesheet" href="../estilos/stylesDark.css">
-    <?php
-    }
-    ?>
 
+    <!--BS5-->
+
+    <link rel="stylesheet" href="../estilos/styles.css">
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!--mi JS-->
@@ -39,7 +29,19 @@
 
 </head>
 
-<body class="fondo">
+<body class="
+<?php
+if (!strcmp($_COOKIE['color'], "blanco")) {
+?>
+    fondo
+    <?php
+} else {
+    ?>
+fondoDark
+    <?php
+}
+    ?>
+">
 
     <?php
     if (!isset($_SESSION)) {

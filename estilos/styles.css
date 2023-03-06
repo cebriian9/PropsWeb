@@ -8,6 +8,10 @@
   background-color: white;
 }
 
+.fondoDark {
+  background-color: #252525;
+}
+
 .bg-encabezado {
   background-image: url(../multimedia/imagenes/decoros/fondoEncabezado.svg);
   background-repeat: no-repeat;
