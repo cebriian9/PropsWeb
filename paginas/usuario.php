@@ -21,6 +21,8 @@
     <!--mi JS-->
     <script src="../scripts/cambios.js"></script>
 
+    
+
 </head>
 
 <body>
@@ -36,7 +38,7 @@
     if (isset($_SESSION["autenticado"]) != true) {
         // inicio la sesión
         echo 'redi';
-        header("Location:InicioSesion.php");
+        header("Location:inicioSesion.php");
     }
 
     //exporto todas las funciones de mostrar nombre y esas pijadas

@@ -14,9 +14,10 @@ function guardarProducto($conexion)
 
     $resultado = $conexion->query($sql);
     $row = $resultado->fetch_object();
-
+    
     //si no existe el usuario lo registro y lo envio al inicio, sino de vuelta a empezar 
-    if ($row->nombre != $nombre) {
+    
+    if (!isset($row->nombre)) {
         
         $descripcion = $_REQUEST['descripcion'];
         $categoria = $_REQUEST['categoria'];
@@ -31,6 +32,22 @@ function guardarProducto($conexion)
         $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','foto','$urlImg','$urlFile')";
 
         $conexion->query($sql);
+
+
+    }else if ($row->nombre != $nombre ) {
+
+        $descripcion = $_REQUEST['descripcion'];
+        $categoria = $_REQUEST['categoria'];
+        $estilo = $_REQUEST['estilo'];
+
+        //guardarFoto();
+
+        $urlImg = $_REQUEST['urlImagen'];
+        $urlFile = $_REQUEST['urlArchivo'];
+
+        //--------------------------------------------------------------------------------cambiar null por foto-----
+        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','foto','$urlImg','$urlFile')";
+
     }else {
         echo "<p style='color:red;'>**Ese producto ya existe, compruebe el nombre** </p>";
     }

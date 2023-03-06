@@ -222,7 +222,7 @@
 
             </div>
             <!--//cartas-->
-            <a href="catalogo.html" class="btn btn-dark w-50"><span class="fs-4">Buscar mas...</span></a>
+            <a href="catalogo.php" class="btn btn-dark w-50"><span class="fs-4">Buscar mas...</span></a>
         </div>
 
 

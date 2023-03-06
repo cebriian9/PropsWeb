@@ -194,38 +194,43 @@
                 <div>
                     <div class="row">
                         <?php
+                        //compruebo que filtro se pulso
                         if (isset($_REQUEST['filtro'])) {
 
+
+                            //compruebo que se pulso una categoria
                             if (isset($_REQUEST['categoria'])) {
                                 $categorias = $_REQUEST['categoria'];
                                 $categorias = "'" . implode("', '", $categorias) . "'";
                                 $categorias = substr($categorias, 1, strlen($categorias) - 2);
-                            }else{
-                                $categorias='';
+                            } else {
+                                //sino categoria vacio
+                                $categorias = '';
                             }
 
-
+                            //compruebo que se pulso un estilo
                             if (isset($_REQUEST['estilo'])) {
                                 $estilo = $_REQUEST['estilo'];
                                 $estilo = "'" . implode("', '", $estilo) . "'";
                                 $estilo = substr($estilo, 1, strlen($estilo) - 2);
-                            }else{
-                                $estilo='';
+                            } else {
+                                //sino estilo vacio
+                                $estilo = '';
                             }
 
+                            //igual con nombre
                             if (isset($_REQUEST['nombre'])) {
-                                $nombre=trim($_REQUEST['nombre']);
-                            }else{
-                                $nombre='';
+                                $nombre = trim($_REQUEST['nombre']);
+                            } else {
+                                $nombre = '';
                             }
 
-                            if ($categorias==null && $estilo==null && $nombre==null) {
+                            // y si todo esta vacio mostramos todo
+                            if ($categorias == null && $estilo == null && $nombre == null) {
                                 $sql = "SELECT * FROM productos ";
-                            }else {
+                            } else {
                                 $sql = "SELECT * FROM productos WHERE categoria IN ('$categorias') OR estilo IN ('$estilo') OR nombre = '$nombre'";
                             }
-
-                            
                         } else {
                             $sql = "SELECT * FROM productos ";
                         }
@@ -234,6 +239,7 @@
                         $resultado = $conexion->query($sql);
                         $row = $resultado->fetch_object();
 
+                        //mostramos productos
                         while ($row != null) {
                         ?>
                             <div class="col-12 col-md-6 col-lg-4">
@@ -277,6 +283,7 @@
                             <?php
 
 
+                            //si esta autenticado mostramos su nombre
                             if (isset($_SESSION["autenticado"]) != true) {
                             ?>
                                 <!--Inicio de sesion-->
@@ -315,8 +322,6 @@
 
 
                         <!--solo para administrador-->
-
-
                         <?php
 
                         if (isset($_SESSION["autenticado"]) == true)
