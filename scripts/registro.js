@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     //-validar usuario----------
-    inpUsuario.addEventListener('change', function () {
+    inpUsuario.addEventListener('keyup', function () {
         validarUsuario()
         validacionFinal()
     })
@@ -35,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //-validar contraseñas---------
-    inpPass.addEventListener('blur', function () {
+    inpPass.addEventListener('keyup', function () {
         validarContraseña()
         validacionFinal()
     })
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //-validar contraseñas---------
-    inpPass2.addEventListener('blur', function () {
+    inpPass2.addEventListener('keyup', function () {
         validarContraseña2()
         validacionFinal()
     })
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //-validar nombre---------
-    inpNombre.addEventListener('blur', function () {
+    inpNombre.addEventListener('keyup', function () {
         validarNombre()
         validacionFinal()
     })
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     //-validar apellido---------
-    inpApellidos.addEventListener('blur', function () {
+    inpApellidos.addEventListener('keyup', function () {
         validarApellidos()
         validacionFinal()
     })
