@@ -27,12 +27,13 @@ function guardarProducto($conexion)
 
         $urlImg = $_REQUEST['urlImagen'];
         $urlFile = $_REQUEST['urlArchivo'];
+        
+        
 
         //--------------------------------------------------------------------------------cambiar null por foto-----
         $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
         $conexion->query($sql);
-
 
     }else if ($row->nombre != $nombre ) {
 
@@ -48,6 +49,8 @@ function guardarProducto($conexion)
         //--------------------------------------------------------------------------------cambiar null por foto-----
         $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
+        
+
     }else {
         echo "<p style='color:red;'>**Ese producto ya existe, compruebe el nombre** </p>";
     }
@@ -56,8 +59,9 @@ function guardarProducto($conexion)
 
 function guardarFoto()
 {
-    var_dump($_FILES);
+    
     //comprobamos que la imagen se ha subido
+    
     if (is_uploaded_file($_FILES['imagen']['tmp_name'])) {
 
         //comptobamos tipo 
@@ -68,11 +72,11 @@ function guardarFoto()
 
             $nombre = time() . $_FILES['imagen']['name'];
             //lo movemos
-            if (move_uploaded_file($_FILES['imagen']['tmp_name'], "../multimedia/imagenes/imagenProducto/" . $nombre)) {
+            if (move_uploaded_file($_FILES['imagen']['tmp_name'], "../multimedia/imagenes/imagenProductos/" . $nombre)) {
                 //se movio
-                // y se mostra
-
-                echo "<img src='img/$nombre' alt='foto subida por usuario' width='100px' height='100px'>";
+                
+                return $nombre;
+                echo "Todo subido correctamente";
             } else {
                 echo "no se pudo guardar";
             }
@@ -80,9 +84,8 @@ function guardarFoto()
             //no es una imagen
             echo "el fichero debe de ser una imagen";
         }
-    } else {
-        echo 'error al subir el archivo';
-    }
+    } 
+
 }
 
 
@@ -92,8 +95,16 @@ if (isset($_REQUEST['enviarPro'])){
         $idProductos = $_REQUEST['marcaPro'];
         $idProductos = implode(",", $idProductos);
 
+        $sql="SELECT imagen FROM productos WHERE id_producto IN ($idProductos)";
+        $resultado = $conexion->query($sql);
+        $row = $resultado->fetch_object();
+
+        if ($row->imagen!=null) {
+            unlink("../multimedia/imagenes/imagenProductos/" . $row->imagen);
+        }
+
+
         $sql = "DELETE FROM productos WHERE id_producto IN ($idProductos)";
-        
         $conexion->query($sql);
  
     }

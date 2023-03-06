@@ -214,7 +214,7 @@
                         </div>
                         <h3>Todos los Productos:</h3><br>
                         <form action="#" method="post">
-                            <div class="overflow-scroll" style="max-height: 300px;">
+                            <div class="overflow-scroll" style="max-height: 400px;">
                                 <table class="table">
                                     <tr class="table-primary">
                                         <th>ID</th>
