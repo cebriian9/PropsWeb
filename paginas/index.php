@@ -26,22 +26,12 @@
     <!--
         https://plantillashtmlgratis.com/todas-las-plantillas/plantilla/plantilla-web-gratuita-tropiko/
     -->
-
+    <?php
+    var_dump($_COOKIE['color']);
+    ?>
 </head>
 
-<body class="
-<?php
-if (!strcmp($_COOKIE['color'], "blanco")) {
-?>
-    fondo
-    <?php
-} else {
-    ?>
-fondoDark
-    <?php
-}
-    ?>
-">
+<body class="fondoN">
 
     <?php
     if (!isset($_SESSION)) {
@@ -52,7 +42,7 @@ fondoDark
     ?>
 
     <!--encabezado-->
-    <header class="container-fluid  bg-primary  text-white bg-encabezado">
+    <header class="container-fluid  bg-primary  text-white bg-encabezado ">
         <div class="row py-4">
             <!--Titulo-->
             <div class="col d-flex flex-column justify-content-center mt-2">
