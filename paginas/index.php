@@ -14,7 +14,20 @@
     <script src="https://kit.fontawesome.com/349b369734.js" crossorigin="anonymous"></script>
 
     <!--BS5-->
-    <link rel="stylesheet" href="../estilos/styles.css">
+
+    <?php
+    if (strcmp($_REQUEST['color'], "blanco")) {
+    ?>
+        <link rel="stylesheet" href="../estilos/styles.css">
+    <?php
+    } else {
+    ?>
+        <link rel="stylesheet" href="../estilos/styles.css">
+    <?php
+    }
+    ?>
+
+
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!--mi JS-->
@@ -65,7 +78,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link text-light fs-5 fw-medium" href="usuario.php">Cuenta</a>
                                 </li>
-                                
+
                             </ul>
                         </div>
 
@@ -236,11 +249,13 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Idioma:</p>
-                        <select name="idioma" id="idioma" class="btn btn-dark text-white mb-4">
-                            <option value="español">Español</option>
-                            <option value="ingles">Ingles</option>
-                        </select>
+                        <p class="fs-4">Color:</p>
+                        <form action="../php/cambioColor.php" method="post" name="color">
+                            <select name="idioma" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                                <option value="normal">Normal</option>
+                                <option value="daltonico">Daltonico</option>
+                            </select>
+                        </form>
 
                         <div class="d-flex flex-column justify-content-center ">
                             <?php
@@ -287,7 +302,7 @@
 
 
                         <?php
-                        
+
                         if (isset($_SESSION["autenticado"]) == true)
                             if (esAdmin($conexion)) {
                         ?>

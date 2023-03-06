@@ -260,10 +260,12 @@
 
                     <div class="d-flex flex-column justify-content-center">
                         <p class="fs-4">Idioma:</p>
-                        <select name="idioma" id="idioma" class="btn btn-dark text-white mb-4">
-                            <option value="español">Español</option>
-                            <option value="ingles">Ingles</option>
-                        </select>
+                        <form action="../php/cambioColor.php" method="post">
+                            <select name="idioma" id="idioma" class="btn btn-dark text-white mb-4">
+                                <option value="español">Español</option>
+                                <option value="ingles">Ingles</option>
+                            </select>
+                        </form>
 
                         <div class="d-flex flex-column justify-content-center ">
                             <?php

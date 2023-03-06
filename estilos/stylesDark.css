@@ -5,7 +5,7 @@
 }
 
 .fondo {
-  background-color: white;
+  background-color: #252525;
 }
 
 .bg-encabezado {
@@ -11500,4 +11500,4 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
-}/*# sourceMappingURL=styles.css.map */
+}/*# sourceMappingURL=stylesDark.css.map */
