@@ -13,20 +13,19 @@
     <!--Font awesome-->
     <script src="https://kit.fontawesome.com/349b369734.js" crossorigin="anonymous"></script>
 
+    
     <!--BS5-->
-
     <?php
-    if (strcmp($_REQUEST['color'], "blanco")) {
+    if (!strcmp($_COOKIE['color'], "blanco")) {
     ?>
         <link rel="stylesheet" href="../estilos/styles.css">
     <?php
     } else {
     ?>
-        <link rel="stylesheet" href="../estilos/styles.css">
+        <link rel="stylesheet" href="../estilos/stylesDark.css">
     <?php
     }
     ?>
-
 
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
@@ -40,7 +39,7 @@
 
 </head>
 
-<body>
+<body class="fondo">
 
     <?php
     if (!isset($_SESSION)) {
@@ -250,11 +249,12 @@
 
                     <div class="d-flex flex-column justify-content-center">
                         <p class="fs-4">Color:</p>
-                        <form action="../php/cambioColor.php" method="post" name="color">
-                            <select name="idioma" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
-                                <option value="normal">Normal</option>
-                                <option value="daltonico">Daltonico</option>
+                        <form action="../php/cambioColor.php" method="post" name="formColor">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                                <option value="blanco">Normal</option>
+                                <option value="negro">Oscuro</option>
                             </select>
+                            <input type="submit" value="aaaa">
                         </form>
 
                         <div class="d-flex flex-column justify-content-center ">

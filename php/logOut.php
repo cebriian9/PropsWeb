@@ -11,7 +11,7 @@
 
     //cookie
 
-    setcookie('PHPSSID','',time()-60);
+    setcookie('PHPSESSID','',time()-60);
 
 
 header("Location:../paginas/index.php");

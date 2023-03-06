@@ -1,12 +1,9 @@
 <?php
 
-setcookie('color','blanco', time()*9999);
+setcookie('color',$_REQUEST['color'], time()+ 60 * 30,"/");
 
-if (!strcmp($_REQUEST['color'], "blanco")) {
-    $_COOKIE['color']=='negro';
-} else {
-    $_COOKIE['color']=='blanco';
-}
 
+
+var_dump($_COOKIE);
 
 header("Location:".$_SERVER['HTTP_REFERER']);
