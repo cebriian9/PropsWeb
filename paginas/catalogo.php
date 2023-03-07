@@ -252,7 +252,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                                         <h5 class="card-title"><?php echo $row->nombre ?></h5>
                                         <span><?php echo $row->categoria ?>, <?php echo $row->estilo ?></span>
                                         <p class="card-text"><?php echo $row->descripcion ?></p>
-                                        <a href="<?php echo $row->urlarchivo ?>" class="btn btn-dark">Descargar</a>
+                                        <a href="<?php echo $row->urlarchivo ?>" class="btn btn-dark" target="_blank">Descargar</a>
                                     </div>
                                 </div>
                             </div>
