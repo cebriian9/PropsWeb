@@ -15,32 +15,34 @@
     <script src="https://kit.fontawesome.com/349b369734.js" crossorigin="anonymous"></script>
 
     <!--BS5-->
-   
-        <link rel="stylesheet" href="../estilos/styles.css">
-   
+
+    <link rel="stylesheet" href="../estilos/styles.css">
+
     <script src="../bs5/node_modules/bootstrap/dist/js/bootstrap.js"></script>
 
     <!--mi JS-->
     <script src="../scripts/registro.js"></script>
     <script src="../scripts/cambios.js"></script>
 
-    
+
 
 
 </head>
-<?php 
-    $color='';
-    if (!strcmp($_COOKIE['color'],'negro')) {
-        $color='';
-    }
-?>
-<body class="<?php echo $color; ?>">
 <?php
+$color = '';
+if (isset($_COOKIE['color']))
+if (!strcmp($_COOKIE['color'], 'negro')) {
+    $color = '';
+}
+?>
+
+<body class="<?php echo $color; ?>">
+    <?php
     if (!isset($_SESSION)) {
         // inicio la sesión
         session_start();
     }
-    
+
     ?>
 
     <header class=" text-white ">
@@ -59,12 +61,12 @@
         <!--//encabezado-->
     </header>
     <?php
-    
-        if (isset($_SESSION["autenticado"]) == true) {
-            // inicio la sesión
-            echo 'redi';
-            header("Location:index.php");
-        }
+
+    if (isset($_SESSION["autenticado"]) == true) {
+        // inicio la sesión
+        echo 'redi';
+        header("Location:index.php");
+    }
     ?>
     <!--body-->
     <div class=" d-flex flex-column justify-content-center align-items-center my-5">
@@ -163,9 +165,9 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Contraste:</p>
                         <form action="../php/cambioColor.php" method="post" name="formColor">
-                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                                <option value="" selected disabled>Contraste</option>
                                 <option value="blanco">Normal</option>
                                 <option value="negro">Oscuro</option>
                             </select>
@@ -207,7 +209,7 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                        
+
                         <!--solo para administrador-->
 
 
@@ -247,12 +249,11 @@
 </body>
 <script>
     function envioColor() {
-  document.formColor.submit()
-}
+        document.formColor.submit()
+    }
 
 
-document.getElementById("defaultOpen").click();
+    document.getElementById("defaultOpen").click();
 </script>
+
 </html>
-
-

@@ -26,12 +26,14 @@
 
 
 </head>
-<?php 
-    $color='';
-    if (!strcmp($_COOKIE['color'],'negro')) {
-        $color='fondo';
-    }
+<?php
+$color = '';
+if (isset($_COOKIE['color']))
+if (!strcmp($_COOKIE['color'], 'negro')) {
+    $color = 'fondo';
+}
 ?>
+
 <body class="<?php echo $color; ?>">
     <?php
     //si no esta la sesion
@@ -157,7 +159,7 @@
 
                 <div id="Datos" class="tabContent ">
 
-                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-white">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-user ico"></i>
                         </div>
@@ -181,7 +183,7 @@
                 </div>
 
                 <div id="usuarios" class="tabContent">
-                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-white">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-user ico"></i>
                         </div>
@@ -215,7 +217,7 @@
                 </div>
 
                 <div id="productos" class="tabContent">
-                    <div class="container border border-dark border-2 rounded-4 p-4 bg-light">
+                    <div class="container border border-dark border-2 rounded-4 p-4 bg-white">
                         <div class="d-flex justify-content-center">
                             <i class="fa-solid fa-cart-shopping ico"></i>
                         </div>
@@ -245,7 +247,7 @@
                         </form>
 
                     </div>
-                    <div class="container border border-dark border-2 rounded-4 mt-4 p-4 bg-light">
+                    <div class="container border border-dark border-2 rounded-4 mt-4 p-4 bg-white">
                         <p class="h4">Añadir productos</p>
                         <form action="#" method="post" enctype="multipart/form-data" class="d-flex flex-column justify-content-between gap-4">
 
@@ -314,9 +316,9 @@
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Contraste:</p>
                         <form action="../php/cambioColor.php" method="post" name="formColor">
-                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                                <option value="" selected disabled>Contraste</option>
                                 <option value="blanco">Normal</option>
                                 <option value="negro">Oscuro</option>
                             </select>
@@ -358,7 +360,7 @@
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                        
+
                         <!--solo para administrador-->
 
                         <?php
@@ -397,9 +399,9 @@
 </body>
 <script>
     function envioColor() {
-  document.formColor.submit()
-}
-document.getElementById("defaultOpen").click();
+        document.formColor.submit()
+    }
+    document.getElementById("defaultOpen").click();
 </script>
-</html>
 
+</html>

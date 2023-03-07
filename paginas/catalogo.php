@@ -22,6 +22,7 @@
 
     <!--mi JS-->
     <script src="../scripts/cambios.js"></script>
+    <script src="../scripts/main.js"></script>
 
     <!--Copiar mucho-->
     <!--
@@ -31,6 +32,7 @@
 </head>
 <?php
 $color = '';
+if (isset($_COOKIE['color']))
 if (!strcmp($_COOKIE['color'], 'negro')) {
     $color = 'fondo';
 }
@@ -129,10 +131,13 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                     <form action="#" method="post" autocomplete="on">
 
                         <div class="d-flex justify-content-between mb-3">
-                            <input class="form-control " type="search" list="buscador" name="nombre" placeholder="Buscar" aria-label="Buscar">
+                            <input class="form-control " type="search" list="sugerencia" id="busq" name="busqueda" placeholder="Buscar" aria-label="Buscar">
                             <button class="btn btn-dark rounded-4 mx-2" type="submit" name="filtro"><i class="fa-solid fa-magnifying-glass "></i></button><!--submit-->
                         </div>
-
+                        <datalist id="sugerencia">
+                            <!--bucle php de options-->
+                            
+                        </datalist>
 
                         <!--//buscador-->
                         <div class="accordion accordion-flush shadow">
@@ -267,9 +272,9 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Contraste:</p>
                         <form action="../php/cambioColor.php" method="post" name="formColor">
-                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                                <option value="" selected disabled>Contraste</option>
                                 <option value="blanco">Normal</option>
                                 <option value="negro">Oscuro</option>
                             </select>
@@ -311,7 +316,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         <li class="nav-item">
                             <a class="text-light " href="usuario.php">Cuenta</a>
                         </li>
-                       
+
                         <!--solo para administrador-->
 
 
@@ -351,7 +356,8 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
 </body>
 <script>
     function envioColor() {
-  document.formColor.submit()
-}
+        document.formColor.submit()
+    }
 </script>
+
 </html>

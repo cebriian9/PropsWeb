@@ -30,6 +30,7 @@
 </head>
 <?php
 $color = '';
+if (isset($_COOKIE['color']))
 if (!strcmp($_COOKIE['color'], 'negro')) {
     $color = 'fondo';
 }
@@ -249,9 +250,10 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 <div class="col-12 col-lg">
 
                     <div class="d-flex flex-column justify-content-center">
-                        <p class="fs-4">Contraste:</p>
+                        
                         <form action="../php/cambioColor.php" method="post" name="formColor">
-                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onblur="envioColor()">
+                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                            <option value="" selected disabled>Contraste</option>
                                 <option value="blanco">Normal</option>
                                 <option value="negro">Oscuro</option>
                             </select>
@@ -334,6 +336,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
 <script>
     function envioColor() {
         document.formColor.submit()
+
     }
 </script>
 
