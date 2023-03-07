@@ -17,7 +17,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 
 
 //conexion
-
 @$conexion = new mysqli('localhost', 'props', 'props', 'propsweb');
 $error = $conexion->connect_errno;
 if ($error != null) {
@@ -25,19 +24,24 @@ if ($error != null) {
     exit();
 }
 
+//rescato busqueda
 $busqueda = $_REQUEST['param'];
 $busqueda = strtolower($busqueda);
 
+//consulto nombre que empiecen por el valor de $busqueda
 $sql = "SELECT nombre FROM productos WHERE nombre LIKE '$busqueda%'";
 
+//consulto
 $resultado = $conexion->query($sql);
 $row = $resultado->fetch_object();
 echo $row->nombre;
 
-while ($row != null) {
-    
-    echo "<option value='$row->nombre'></option>";
 
+//bucle de option en el datalist
+while ($row != null) {
+
+    echo "<option value='$row->nombre'></option>";
+    //bajo linea
     $row = $resultado->fetch_object();
 }
 

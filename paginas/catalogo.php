@@ -218,8 +218,8 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                             }
 
                             //igual con nombre
-                            if (isset($_REQUEST['nombre'])) {
-                                $nombre = trim($_REQUEST['nombre']);
+                            if (isset($_REQUEST['busqueda'])) {
+                                $nombre = trim($_REQUEST['busqueda']);
                             } else {
                                 $nombre = '';
                             }
@@ -227,8 +227,12 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                             // y si todo esta vacio mostramos todo
                             if ($categorias == null && $estilo == null && $nombre == null) {
                                 $sql = "SELECT * FROM productos ";
-                            } else {
-                                $sql = "SELECT * FROM productos WHERE categoria IN ('$categorias') OR estilo IN ('$estilo') OR nombre = '$nombre'";
+                            } else if ($nombre==null) {
+                                $sql = "SELECT * FROM productos WHERE categoria IN ('$categorias') OR estilo IN ('$estilo') ";
+                                
+                            } else{
+                                $sql = "SELECT * FROM productos WHERE nombre = '$nombre' OR estilo IN ('$estilo') OR categoria IN ('$categorias') ";
+                                
                             }
                         } else {
                             $sql = "SELECT * FROM productos ";
