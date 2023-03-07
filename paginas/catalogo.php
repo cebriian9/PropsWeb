@@ -273,6 +273,7 @@ if (isset($_COOKIE['color']))
                 <!--cambio de idioma-->
                 <div class="col-12 col-lg">
 
+                    <div class="d-flex justify-content-center">
                     <div class="d-flex flex-column justify-content-center">
                         <form action="../php/cambioColor.php" method="post" name="formColor">
                             <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
@@ -295,7 +296,7 @@ if (isset($_COOKIE['color']))
                             <?php
                             } else {
                             ?>
-                                <i class="fa-solid fa-user ico"></i>
+                                <i class="fa-solid fa-user fs-3"></i>
                                 <p>Hola, <?php echo mostrarNombre($conexion) ?>
                                     <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
                                 </p>
@@ -304,6 +305,7 @@ if (isset($_COOKIE['color']))
                             ?>
 
                         </div>
+                    </div>
                     </div>
                 </div>
 

@@ -14,16 +14,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
     //-validar usuario----------
     inpUsuario.addEventListener('keyup', function () {
+        
         validarUsuario()
         validacionFinal()
     })
 
     function validarUsuario() {
         let usuario = document.getElementById('usuario').value
-        let exp = /^[a-z0-9_-]{3,16}$/
+        let exp = /^[a-zA-Z0-9_-]{3,16}$/
 
-        let valido = exp.test(usuario)
-
+        let valido = exp.test(usuario)  
+        
         if (valido == false) {
             document.getElementById('errUs').innerHTML = "error en el nombre de usuario , tamaño [3-20]"
         }
@@ -42,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function validarContraseña() {
         let pass = document.getElementById('pass').value
-        let exp = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/
+        let exp = /^(?=.[A-Z])(?=.\d){8,}$/
 
 
         let valido = exp.test(pass)
