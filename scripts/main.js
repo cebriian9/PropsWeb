@@ -3,7 +3,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     let buscador = document.getElementById('busq')
     let sugerencia=document.getElementById('sugerencia')
-    buscador.addEventListener('keyup', function (str) {
+    
+    buscador.addEventListener('keyup', function () {
+        let str=buscador.value
+
         
         if (str.length == 0) {
             sugerencia.innerHTML = "";
@@ -14,7 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
             xmlhttp.onreadystatechange = function () {
 
                 if (this.readyState == 4 && this.status == 200) {
-                    console.log(str);
+                    
                     sugerencia.innerHTML = this.responseText;
                 }
             };
