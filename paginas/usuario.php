@@ -311,7 +311,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
 
     <footer class="container-fluid bg-black mb-0">
         <div class="container text-light">
-            <div class="row p-4">
+            <div class="row p-4 gap-3">
                 <!--cambio de idioma-->
                 <div class="col-12 col-lg">
 
@@ -350,18 +350,19 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 </div>
 
                 <!--cuenta y cosas-->
-                <div class="col-12 col-lg">
+                <div class="col-12 col-lg text-center mt-5">
 
                     <ul class="navbar-nav">
 
                         <li class="nav-item">
-                            <a class="text-light " href="catalogo.php">Diseños</a>
+                            <a class="text-light fs-4" href="catalogo.php">Diseños</a>
                         </li>
                         <li class="nav-item">
-                            <a class="text-light " href="usuario.php">Cuenta</a>
+                            <a class="text-light fs-4" href="usuario.php">Cuenta</a>
                         </li>
 
                         <!--solo para administrador-->
+
 
                         <?php
 
@@ -370,7 +371,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         ?>
                             <hr>
                             <p class="mb-0">Administrador:</p>
-                            <hr class="w-25 my-0">
+                            
                             <li class="nav-item">
                                 <a class="text-light " href="usuario.php">Vista de usuarios</a>
                             </li>
@@ -388,9 +389,37 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 <!--varios-->
                 <div class="col">
 
-                    <p>
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="https://formspree.io/f/xgebvpyq" method="POST" class="w-75">
 
-                    </p>
+                        <div class="text-center fs-3 fw-bold">Contacto</div>
+                        <div class="input-group mt-4">
+                            <div class="input-group-text ">
+                                <i class="fa-solid fa-user"></i>
+                            </div>
+                            <!--usuario-->
+                            <input class="form-control " name="Nombre" type="text" placeholder="Nombre" />
+                        </div>
+                        <div class="input-group mt-1">
+                            <div class="input-group-text">
+                                <i class="fa-solid fa-circle-exclamation"></i>
+                            </div>
+                            <!--asunto-->
+                            <input class="form-control " name="asunto" type="password" placeholder="Asunto" />
+
+
+                        </div>
+
+                        <div class="input-group mt-1">
+                            <!--mensaje-->
+                            <textarea name="Texto" id="text" cols="20" rows="3" placeholder="Mensaje..." class="form-control"></textarea>
+                        </div>
+                        <!--submit-->
+                        <button type="submit" name="enviar" value="inicio" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm">
+                            Enviar
+                        </button>
+
+
+                    </form>
                 </div>
             </div>
         </div>
