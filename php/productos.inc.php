@@ -30,8 +30,7 @@ function guardarProducto($conexion)
         $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
         $conexion->query($sql);
-        header("Location:usuario.php");
-        die();
+        
         //si el nombre es no esta en la base de datos lo registro
     }else {
         echo "<p style='color:red;'>**Ese producto ya existe, compruebe el nombre** </p>";
