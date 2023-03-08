@@ -131,7 +131,7 @@ if (isset($_COOKIE['color']))
                     <form action="#" method="post" autocomplete="on">
 
                         <div class="d-flex justify-content-between mb-3">
-                            <input class="form-control " type="search" list="sugerencia" id="busq" name="busqueda" placeholder="Buscar" aria-label="Buscar">
+                            <input class="form-control " type="search" list="sugerencia" id="busq" name="busqueda" placeholder="Buscar" autocomplete="off" aria-label="Buscar">
                             <button class="btn btn-dark rounded-4 mx-2" type="submit" name="filtro"><i class="fa-solid fa-magnifying-glass "></i></button><!--submit-->
                         </div>
                         <datalist id="sugerencia">

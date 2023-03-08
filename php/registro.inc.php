@@ -21,30 +21,68 @@ if (isset($_REQUEST['enviar'])) {
         $row = $resultado->fetch_object();
 
         //si no existe el usuario lo registro y lo envio al inicio, sino de vuelta a empezar 
-        if ($row->usuario != $usuario) {
-            $pass = hash('sha256', trim($_REQUEST['pass']));
+        if (isset($row->usuario) != $usuario) {
 
-            $nombre = trim($_REQUEST['nombre']);
-            $apellidos = trim($_REQUEST['apellidos']);
+            $Exp = "/^[a-zA-Z0-9_-]{3,16}$/";
 
-            $sql = "INSERT INTO usuarios  VALUES(null,'$usuario','$pass','$nombre','$apellidos')";
+            //valido que la expresion regular se cumple de nuevo 
+            if (preg_match($Exp, $usuario)) {
 
-            $conexion->query($sql);
+                $Exp = "/^(?=.*[A-Z])(?=.*\d)(?=.*\W)[\S]{8,}/";
 
-            echo " Registrado correctamente";
+                //valido pass
+                if (preg_match($Exp, trim($_REQUEST['pass']))) {
+                    //si correcto
+                    //ciframos pass
+                    $pass = hash('sha256', trim($_REQUEST['pass']));
 
-            if (!isset($_SESSION)) {
-                // inicio la sesión
-                session_start();
+                    $Exp = "/^[A-ZÑa-zñáéíóúÁÉÍÓÚ'° ]{3,20}$/";
+
+                    //contraseñas coincidan
+                    if (!strcmp($_REQUEST['pass'], $_REQUEST['pass2'])) {
+
+
+                        //validamos nombre y apellido
+                        if ((preg_match($Exp, trim($_REQUEST['nombre']))) && (preg_match($Exp, trim($_REQUEST['apellidos'])))) {
+                            $nombre = trim($_REQUEST['nombre']);
+                            $apellidos = trim($_REQUEST['apellidos']);
+
+
+
+
+                            $sql = "INSERT INTO usuarios  VALUES(null,'$usuario','$pass','$nombre','$apellidos')";
+
+                            $conexion->query($sql);
+
+                            echo " Registrado correctamente";
+
+                            if (!isset($_SESSION)) {
+                                // inicio la sesión
+                                session_start();
+                            }
+
+                            //le ponemos que esta identificado
+                            $_SESSION["autenticado"] = true;
+                            $_SESSION["usuario"] = $usuario;
+
+                            header("Location:index.php");
+                            //registrado
+                        } else {
+                            echo "Compruebe el nombre y apellido";
+                        }
+
+                    } else {
+                        echo "Compruebe que las contraseñas sean iguales";
+                    }
+
+                } else {
+                    echo "Compruebe la contraseña";
+                }
+
+            } else {
+                echo "Compruebe el usuario";
             }
 
-            //le ponemos que esta identificado
-            $_SESSION["autenticado"] = true;
-            $_SESSION["usuario"]=$usuario;
-
-            header("Location:index.php");
-
-            
         } else {
             echo "El usuario ya existe";
         }
@@ -69,13 +107,11 @@ if (isset($_REQUEST['enviar'])) {
 
             //le ponemos que esta identificado
             $_SESSION["autenticado"] = true;
-            $_SESSION["usuario"]=$usuario;
+            $_SESSION["usuario"] = $usuario;
 
             header("Location:index.php");
-
         } else {
             echo "Las credenciales no son correctas, prueba a registrarte\n";
         }
     }
 }
-?>

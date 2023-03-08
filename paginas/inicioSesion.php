@@ -128,7 +128,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         <span id="errUs" class="text-danger-emphasis"></span>
 
                         <input class="form-control " name="pass" id="pass" type="text" placeholder="Contraseña" />
-                        <span>(minimo 8 Digitos una mayuscula y numero, sin caracteres especiales)</span>
+                        <span>(Minimo 8 digitios, una mayúscula un número y algún caracter especial)</span>
                         <span id="errPass" class="text-danger-emphasis"></span>
 
                         <input class="form-control " name="pass2" id="pass2" type="text" placeholder="Repetir contraseña" />
@@ -137,7 +137,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         <input class="form-control " name="nombre" id="nombre" type="text" placeholder="Nombre" />
                         <span id="errNombre" class="text-danger-emphasis"></span>
 
-                        <input class="form-control " name="apellidos" id="apellidos" type="text" placeholder="apellidos" />
+                        <input class="form-control " name="apellidos" id="apellidos" type="text" placeholder="Apellidos" />
                         <span id="errApellido" class="text-danger-emphasis"></span>
 
                     </div>
@@ -145,7 +145,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         <?php include "../php/registro.inc.php" ?>
                     </span>
                     <!--submit-->
-                    <button type="submit" id="submit" name="enviar" value="registro" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled"><!--disabled-->
+                    <button type="submit" id="submit" name="enviar" value="registro" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm "><!--disabled-->
                         Registrarse
                     </button>
 

@@ -43,7 +43,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function validarContraseña() {
         let pass = document.getElementById('pass').value
-        let exp = /^(?=.[A-Z])(?=.\d){8,}$/
+        let exp = /^(?=.*[A-Z])(?=.*\d)(?=.*\W)[\S]{8,}/
 
 
         let valido = exp.test(pass)
