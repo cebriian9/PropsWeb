@@ -23,7 +23,7 @@ if (isset($_REQUEST['enviar'])) {
         //si no existe el usuario lo registro y lo envio al inicio, sino de vuelta a empezar 
         if (isset($row->usuario) != $usuario) {
 
-            $Exp = "/^[A-Za-z\d_-]{3,16}[A-Za-z]{1}[A-Za-z\d_-]*$/";
+            $Exp = "/^(?=.*[A-Za-z])[A-Za-z0-9_-]{3,16}$/";
 
             //valido que la expresion regular se cumple de nuevo 
             if (preg_match($Exp, $usuario)) {

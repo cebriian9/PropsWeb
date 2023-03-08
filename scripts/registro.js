@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function validarUsuario() {
         let usuario = document.getElementById('usuario').value
-        let exp = /^[A-Za-z\d_-]{3,16}[A-Za-z]{1}[A-Za-z\d_-]*$/
+        let exp = /^(?=.*[A-Za-z])[A-Za-z0-9_-]{3,16}$/
 
         let valido = exp.test(usuario)  
         
