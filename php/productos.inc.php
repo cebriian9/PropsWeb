@@ -15,8 +15,7 @@ function guardarProducto($conexion)
     $resultado = $conexion->query($sql);
     $row = $resultado->fetch_object();
     
-    //si no existe el usuario lo registro y lo envio al inicio, sino de vuelta a empezar 
-    
+    //Sino esxiste el producto no exisiste lo creo    
     if (!isset($row->nombre)) {
         
         $descripcion = $_REQUEST['descripcion'];
@@ -28,29 +27,12 @@ function guardarProducto($conexion)
         $urlImg = $_REQUEST['urlImagen'];
         $urlFile = $_REQUEST['urlArchivo'];
         
-        
-
-        //--------------------------------------------------------------------------------cambiar null por foto-----
         $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
 
         $conexion->query($sql);
-
-    }else if ($row->nombre != $nombre ) {
-
-        $descripcion = $_REQUEST['descripcion'];
-        $categoria = $_REQUEST['categoria'];
-        $estilo = $_REQUEST['estilo'];
-
-        $foto=guardarFoto();
-
-        $urlImg = $_REQUEST['urlImagen'];
-        $urlFile = $_REQUEST['urlArchivo'];
-
-        //--------------------------------------------------------------------------------cambiar null por foto-----
-        $sql = "INSERT INTO productos  VALUES(null,'$categoria','$estilo','$nombre','$descripcion','$foto','$urlImg','$urlFile')";
-
-        
-
+        header("Location:usuario.php");
+        die();
+        //si el nombre es no esta en la base de datos lo registro
     }else {
         echo "<p style='color:red;'>**Ese producto ya existe, compruebe el nombre** </p>";
     }
@@ -110,3 +92,5 @@ if (isset($_REQUEST['enviarPro'])){
     }
 
 }
+
+?>

@@ -145,7 +145,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         <?php include "../php/registro.inc.php" ?>
                     </span>
                     <!--submit-->
-                    <button type="submit" id="submit" name="enviar" value="registro" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm "><!--disabled-->
+                    <button type="submit" id="submit" name="enviar" value="registro" class="btn btn-dark text-white w-100 mt-4 fw-semibold shadow-sm disabled"><!--disabled-->
                         Registrarse
                     </button>
 
