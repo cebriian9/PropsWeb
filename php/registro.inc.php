@@ -23,7 +23,7 @@ if (isset($_REQUEST['enviar'])) {
         //si no existe el usuario lo registro y lo envio al inicio, sino de vuelta a empezar 
         if (isset($row->usuario) != $usuario) {
 
-            $Exp = "/^[a-zA-Z0-9_-]{3,16}$/";
+            $Exp = "/^[A-Za-z\d_-]{3,16}[A-Za-z]{1}[A-Za-z\d_-]*$/";
 
             //valido que la expresion regular se cumple de nuevo 
             if (preg_match($Exp, $usuario)) {
@@ -70,19 +70,15 @@ if (isset($_REQUEST['enviar'])) {
                         } else {
                             echo "Compruebe el nombre y apellido";
                         }
-
                     } else {
                         echo "Compruebe que las contraseñas sean iguales";
                     }
-
                 } else {
                     echo "Compruebe la contraseña";
                 }
-
             } else {
                 echo "Compruebe el usuario";
             }
-
         } else {
             echo "El usuario ya existe";
         }
