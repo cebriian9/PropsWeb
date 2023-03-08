@@ -230,7 +230,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                                         <th>nombre</th>
                                         <th>Categoria</th>
                                         <th>Estilo</th>
-                                        <th>Descripcion</th>
+                                        <th>Descripción</th>
                                         <th>Imagen</th>
                                         <th></th>
                                     </tr>
@@ -254,7 +254,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                             <span>Nombre:<span style='color:red;'>*</span></span>
                             <input type="text" class="form-control " name="nombre" placeholder="Nombre (max20)">
 
-                            <span>Descripcion: <span style='color:red;'>*</span> </span>
+                            <span>Descripción: <span style='color:red;'>*</span> </span>
                             <input type="text" class="form-control " name="descripcion" placeholder="Descripcion (max 200)">
 
                             <span>Categorias:</span>

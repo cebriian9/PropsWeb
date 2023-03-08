@@ -176,7 +176,7 @@ if (isset($_COOKIE['color']))
                                         <input type="checkbox" name="estilo[]" value="moderno" class="form-check-input"> Moderno <br>
                                         <input type="checkbox" name="estilo[]" value="alegre" class="form-check-input"> Alegre <br>
                                         <input type="checkbox" name="estilo[]" value="Colorido" class="form-check-input"> Colorido <br>
-                                        <input type="checkbox" name="estilo[]" value="simple" class="form-check-input"> Minimalista <br>
+                                        <input type="checkbox" name="estilo[]" value="simple" class="form-check-input"> Simple <br>
                                     </div>
                                 </div>
                             </div>

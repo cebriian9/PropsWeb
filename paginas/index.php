@@ -31,9 +31,9 @@
 <?php
 $color = '';
 if (isset($_COOKIE['color']))
-if (!strcmp($_COOKIE['color'], 'negro')) {
-    $color = 'fondo';
-}
+    if (!strcmp($_COOKIE['color'], 'negro')) {
+        $color = 'fondo';
+    }
 ?>
 
 <body class="<?php echo $color; ?> ">
@@ -117,12 +117,8 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                     <div class="col col-md-6 bg-light rounded-4 p-3  text-black text-break">
                         <p class="h3">Diseños Web</p>
                         ¿Estás buscando una manera rápida y fácil de crear una página web increíble? ¡Tenemos la
-                        solución
-                        perfecta para ti! En nuestra tienda web, ofrecemos una amplia selección de plantillas de diseño
-                        de
-                        páginas web, desde diseños elegantes hasta modernos y vibrantes.
-
-
+                        solución perfecta para ti! En nuestra pagina web, ofrecemos una amplia selección de plantillas de
+                        web, desde diseños elegantes hasta modernos y vibrantes.
                     </div>
                 </div>
             </div>
@@ -154,13 +150,13 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 <div class="col-12 col-lg">
                     <div class="row">
                         <p class="fs-2"><span class="h1">1·</span> Elige el diseño que mas te guste</p>
-                        <p class="fs-5">Échale un vistazo a nuestras plantillas de diseño de sitios web,
+                        <p class="fs-5">Échale un vistazo a nuestras plantillas web,
                             seguro que encuentras algo que se adapte a tu estilo y necesidades.
                         </p>
                     </div>
                     <hr>
                     <div class="row">
-                        <p class="fs-2"><span class="h1">2·</span> Descargua una plantilla</p>
+                        <p class="fs-2"><span class="h1">2·</span> Descarga una plantilla</p>
                         <p class="fs-5">¡No pierdas el tiempo! Descarga la plantilla que más te guste
                             y empieza a trabajar en tu sitio web de inmediato.
                         </p>
@@ -223,8 +219,8 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                             <div class="card-body">
                                 <h5 class="card-title">Web Restaurante</h5>
                                 <p class="card-text">
-                                    Diseña el sitio web perfecto para tu restaurante con nuestro 
-                                    diseño web especializado, que destaca tu deliciosa comida con 
+                                    Diseña el sitio web perfecto para tu restaurante con nuestro
+                                    diseño web especializado, que destaca tu deliciosa comida con
                                     imágenes de alta calidad y un diseño moderno
                                 </p>
                                 <button class="btn btn-outline-dark"><a href="catalogo.php" class="nav-link">Descargar</a></button>
@@ -250,38 +246,38 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                 <div class="col-12 col-lg">
 
                     <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column justify-content-center">
-                        <form action="../php/cambioColor.php" method="post" name="formColor">
-                            <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
-                                <option value="" selected disabled>Contraste</option>
-                                <option value="blanco">Normal</option>
-                                <option value="negro">Oscuro</option>
-                            </select>
-                        </form>
+                        <div class="d-flex flex-column justify-content-center">
+                            <form action="../php/cambioColor.php" method="post" name="formColor">
+                                <select name="color" id="color" class="btn btn-dark text-white mb-4" onchange="envioColor()">
+                                    <option value="" selected disabled>Contraste</option>
+                                    <option value="blanco">Normal</option>
+                                    <option value="negro">Oscuro</option>
+                                </select>
+                            </form>
 
-                        <div class="d-flex flex-column justify-content-center ">
-                            <?php
+                            <div class="d-flex flex-column justify-content-center ">
+                                <?php
 
 
-                            if (isset($_SESSION["autenticado"]) != true) {
-                            ?>
-                                <!--Inicio de sesion-->
-                                <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
-                                <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
-                                <!--//Inicio de sesion-->
-                            <?php
-                            } else {
-                            ?>
-                                <i class="fa-solid fa-user fs-3"></i>
-                                <p>Hola, <?php echo mostrarNombre($conexion) ?>
-                                    <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
-                                </p>
-                            <?php
-                            }
-                            ?>
+                                if (isset($_SESSION["autenticado"]) != true) {
+                                ?>
+                                    <!--Inicio de sesion-->
+                                    <button class="btn btn-outline-light text-white my-2 fs-5 fw-medium h-50"><a href="inicioSesion.php" class="nav-link ">Inicio Sesión</a></button>
+                                    <button class="btn btn-light fw-bolder fs-5 my-2 h-50"><a href="inicioSesion.php" class="nav-link ">Comenzar</a></button>
+                                    <!--//Inicio de sesion-->
+                                <?php
+                                } else {
+                                ?>
+                                    <i class="fa-solid fa-user fs-3"></i>
+                                    <p>Hola, <?php echo mostrarNombre($conexion) ?>
+                                        <a href="../php/logOut.php" class="nav-link text-info">Cerrar sesión</a>
+                                    </p>
+                                <?php
+                                }
+                                ?>
 
+                            </div>
                         </div>
-                    </div>
                     </div>
                 </div>
 
@@ -307,7 +303,7 @@ if (!strcmp($_COOKIE['color'], 'negro')) {
                         ?>
                             <hr>
                             <p class="mb-0">Administrador:</p>
-                            
+
                             <li class="nav-item">
                                 <a class="text-light " href="usuario.php">Vista de usuarios</a>
                             </li>
