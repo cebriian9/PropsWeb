@@ -46,6 +46,20 @@ $theme-colors: (
     font-size: 50px
 }
 
+.Giro{
+    transition-property: all;
+    transition-duration: 2s;
+    transition-timing-function: ease;
+    -webkit-transition-property: all;
+    -webkit-transition-duration: 2s;
+    -webkit-transition-timing-function: ease;
+}
+
+.Giro:hover{
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+}
+
  
 
 @import "../bs5/node_modules/bootstrap/scss/bootstrap.scss";

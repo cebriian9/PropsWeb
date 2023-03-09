@@ -1,3 +1,5 @@
 
 usuario: 'props'
 pass:'props'
+
+en caso de errores las tablas al final tienen un "COLLATE=utf8mb4_0900_ai_ci;", quitar

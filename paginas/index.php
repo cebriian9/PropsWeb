@@ -50,20 +50,22 @@ if (isset($_COOKIE['color']))
     <header class="container-fluid  bg-primary  text-white bg-encabezado ">
         <div class="row py-4">
             <!--Titulo-->
-            <div class="col d-flex flex-column justify-content-center mt-2">
-                <p class="h1 titulo text-center">
-                    <a href="index.php" class="nav-link">Props Web</a>
+            <div class="col d-flex flex-column justify-content-center mt-2 ">
+                <p class="h1 titulo text-center ">
+                    <a href="index.php" class="nav-link ">Props Web</a>
                 </p>
             </div>
             <!--//Titulo-->
 
             <div class=" col-12 col-sm d-flex justify-content-center order-3 order-sm-0  ">
                 <!--Menu desplegable-->
-                <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column justify-content-center">
+                <nav class="navbar navbar-expand-lg navbar-light d-flex flex-column justify-content-center ">
 
-                    <button onclick="xAnimation()" class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <div class="Giro">
+                    <button onclick="xAnimation()" class="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="h3 text-light" id="tongleNav"><i class="fa-solid fa-bars"></i></span>
                     </button>
+                    </div>
                     <div>
                         <!--Desplegable-->
                         <div class="collapse navbar-collapse " id="navbarNav">

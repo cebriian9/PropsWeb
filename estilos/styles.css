@@ -31,6 +31,20 @@
   font-size: 50px;
 }
 
+.Giro {
+  transition-property: all;
+  transition-duration: 2s;
+  transition-timing-function: ease;
+  -webkit-transition-property: all;
+  -webkit-transition-duration: 2s;
+  -webkit-transition-timing-function: ease;
+}
+
+.Giro:hover {
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+}
+
 /*!
  * Bootstrap  v5.3.0-alpha1 (https://getbootstrap.com/)
  * Copyright 2011-2022 The Bootstrap Authors
