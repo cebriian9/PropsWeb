@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             };
 
-            xmlhttp.open("GET", "http://localhost/PropsWeb/php/buscador.php?param=" + str, true);
+            xmlhttp.open("GET", "http://10.10.30.174/raul/buscador.php?param=" + str, true);
             xmlhttp.send();
         }
 

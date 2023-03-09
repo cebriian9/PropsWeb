@@ -321,7 +321,7 @@ if (isset($_COOKIE['color']))
                 <!--varios-->
                 <div class="col">
 
-                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="https://formspree.io/f/xgebvpyq" method="POST" class="w-75">
+                    <form id="contactForm" data-sb-form-api-token="API_TOKEN" action="https://formspree.io/f/xgebvpyq" method="POST" class="d-flex flex-column align-items-center">
 
                         <div class="text-center fs-3 fw-bold">Contacto</div>
                         <div class="input-group mt-4">
